@@ -1,4 +1,4 @@
-import React from "react";
+import React from 'react';
 
 function TechStackCard() {
   return <div>techStackCard</div>;
