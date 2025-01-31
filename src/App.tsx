@@ -1,30 +1,27 @@
-import { useState } from 'react'
+
 import { Button } from "@/components/ui/button"
 import { XStack, YStack } from './components/ui/stacks'
+import SiteHeader from './components/site-header'
 
 
 function App() {
-  const [count, setCount] = useState(0)
+  // rgb(238, 228, 202)
+  // rgb(253, 246, 232)
+
 
   return (
-    <YStack className='items-center w-screen h-screen text-slate-800 font-sans justify-center'>
-      <h1>Luke Costelloe</h1>
-      <h1>Full Stack Developer</h1>
-      <XStack className='bg-red-500 p-10 gap-2'>
+    <YStack className='bg-[#FDF6E8] items-center w-screen h-screen text-slate-800 font-sans justify-center'>
+      <SiteHeader/>
+      <YStack className='gap-2'>
+        <p className='font-bold'>Hey, I'm</p>
+        <h1 className="text-5xl font-bold text-black">Luke Costelloe</h1>
+        <h1 className="text-3xl font-bold text-black">Creative Developer</h1>
+        <p>I'm a developer based in Nice, specialising in Front-End development. I love making things.</p>
+      </YStack>
+      <XStack className='bg-white p-10 gap-2'>
         <Button variant='orangeround'>Click me</Button>
         <Button variant='default'>Click me</Button>
       </XStack>
-      <XStack className="gap-2">
-        <button  onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </button>
-        <p className='bg-orange-400'>
-          Edit <code>src/App.tsx</code> and save to test HMR
-        </p>
-      </XStack>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p>
     </YStack>
   )
 }
