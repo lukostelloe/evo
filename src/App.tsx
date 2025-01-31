@@ -1,35 +1,48 @@
 
 import { Button } from "@/components/ui/button"
 import { XStack, YStack } from './components/ui/stacks'
-import SiteHeader from './components/site-header'
 import { useTranslation } from "react-i18next"
-import LanguageSwitcher from "./components/language-switcher"
+import { AtSign, CircleCheck, Code, Download, Smile } from 'lucide-react';
+import AboutMeCard from "./components/aboutMeCard";
+import ContactCard from "./components/contactCard";
+import ExperienceCard from "./components/experienceCard";
+import TechStackCard from "./components/techStackCard";
+import { useState } from "react";
 
 
-function App() {
+export default function App() {
   // rgb(238, 228, 202)
   // rgb(253, 246, 232)
 
   const {t} = useTranslation()
+  const [activeCard, setActiveCard] = useState<string>('')
+  const handleButtonClick = (card: string) => {
+    setActiveCard(card)
+  }
 
 
   return (
-    <YStack className='bg-[#FDF6E8] items-center w-screen h-screen text-slate-800 font-sans justify-center'>
-      <SiteHeader/>
-      <LanguageSwitcher/>
+    <YStack className='bg-[#FDF6E8] items-center w-screen h-screen text-slate-800 font-sans gap-3 pt-[150px] w-80%'>
       <YStack className='gap-2'>
-        <p className='font-bold'>Hey, I'm</p>
-        <h1>{t('welcome')}</h1>
+        <p className='font-bold'>{t('hey_im')}</p>
         <h1 className="text-5xl font-bold text-black">Luke Costelloe</h1>
-        <h1 className="text-3xl font-bold text-black">Creative Developer</h1>
-        <p>I'm a developer based in Nice, specialising in Front-End development. I love making things.</p>
+        <h1 className="text-3xl font-bold text-black">{t('software_developer')}</h1>
+        <p>{t('dev_description')}</p>
       </YStack>
-      <XStack className='bg-white p-10 gap-2'>
-        <Button variant='orangeround'>Click me</Button>
-        <Button variant='default'>Click me</Button>
+      <XStack className='bg-white p-6 gap-2 rounded-full'>
+      <Button variant='orangeround' onClick={() => handleButtonClick('aboutMe')}><Smile/>About me</Button>
+        <Button variant='orangeround' onClick={() => handleButtonClick('experience')}><CircleCheck/>Experience</Button>
+        <Button variant='orangeround' onClick={() => handleButtonClick('techstack')}><Code/>Tech Stack</Button>
+        <Button variant='orangeround' onClick={() => handleButtonClick('contact')}><AtSign/>Contact</Button>
+        <Button variant='orangeround'><Download />Download my CV</Button>
+      </XStack>
+      <XStack className='bg-white p-10 gap-2 rounded-full h-100'>
+        {/* Conditional Rendering based on activeCard state */}
+        {activeCard === 'aboutMe' && <AboutMeCard />}
+        {activeCard === 'experience' && <ExperienceCard />}
+        {activeCard === 'contact' && <ContactCard />}
+        {activeCard === 'techstack' && <TechStackCard />}
       </XStack>
     </YStack>
   )
 }
-
-export default App

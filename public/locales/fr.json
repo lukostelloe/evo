@@ -1,6 +1,8 @@
 
 {
-    "welcome": "Bienvenue sur mon site web",
-    "hello": "Bonjour, {{name}}!"
+    "hey_im":"Salut, moi c'est",
+    "software_developer": "Développeur logiciel",
+    "dev_description": "Je suis développeur basé à Nice, spécialisé dans le développement Front-End. J'adore créer des choses."
+
 }
   
