@@ -1,9 +1,18 @@
+import defaultTheme from "tailwindcss/defaultTheme"
+
+
 /** @type {import('tailwindcss').Config} */
 export default {
     darkMode: ["class"],
     content: ["./index.html", "./src/**/*.{ts,tsx,js,jsx}"],
   theme: {
   	extend: {
+		fontFamily: {
+			sans: ['Nunito Sans', ...defaultTheme.fontFamily.sans],
+			serif: ['Nunito', ...defaultTheme.fontFamily.serif],
+			'nunito-sans': ['Nunito Sans'],
+			nunito: ['Nunito']
+		},
   		borderRadius: {
   			lg: 'var(--radius)',
   			md: 'calc(var(--radius) - 2px)',
