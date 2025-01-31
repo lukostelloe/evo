@@ -13,7 +13,7 @@ export default function App() {
   // rgb(253, 246, 232)
 
   const { t } = useTranslation();
-  const [activeCard, setActiveCard] = useState<string>('');
+  const [activeCard, setActiveCard] = useState<string>('aboutMe');
   const handleButtonClick = (card: string) => {
     setActiveCard(card);
   };
