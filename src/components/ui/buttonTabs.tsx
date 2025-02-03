@@ -23,7 +23,7 @@ export default function ButtonTabs() {
 
   return (
     <>
-      <XStack className='bg-white p-6 gap-2 rounded-full shadow-md'>
+      <XStack className='bg-white p-6 gap-2 border border-black rounded-full'>
         <Button
           className={`${activeCard === 'aboutMe' ? activeStyles : ''}`}
           variant='orangeround'
