@@ -1,4 +1,4 @@
-import React from 'react';
+
 import { useTranslation } from 'react-i18next';
 import { useState, useEffect } from 'react';
 import { Button } from './ui/button';
@@ -10,10 +10,10 @@ function LanguageDropdown() {
 
   useEffect(() => {
     setLanguage(i18n.language);
-  }, [i18n.language]); // Dependency on i18n.language to track changes
+  }, [i18n.language])
 
   const changeLanguage = (lng: string) => {
-    i18n.changeLanguage(lng); // Switch language
+    i18n.changeLanguage(lng)
   };
 
   return (

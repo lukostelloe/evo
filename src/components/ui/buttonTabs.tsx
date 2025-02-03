@@ -1,12 +1,11 @@
-import { AtSign, CircleCheck, Code, Download, Smile } from 'lucide-react';
+import { useState } from 'react';
 import { Button } from './button';
 import { XStack, YStack } from './stacks';
-import { useState } from 'react';
 import AboutMeCard from '../aboutMeCard';
-import ExperienceCard from '../experienceCard';
-import ContactCard from '../contactCard';
 import TechStackCard from '../techStackCard';
+import ExperienceCard from '../experienceCard';
 import ConfettiExplosion from 'react-confetti-explosion';
+import { CircleCheck, Code, Download, Smile } from 'lucide-react';
 
 export default function ButtonTabs() {
   const [isExploding, setIsExploding] = useState(false);
@@ -51,14 +50,6 @@ export default function ButtonTabs() {
           <Code />
           Tech Stack
         </Button>
-        <Button
-          className={`${activeCard === 'contact' ? activeStyles : ''}`}
-          variant='orangeround'
-          onClick={() => handleButtonClick('contact')}
-        >
-          <AtSign />
-          Contact
-        </Button>
         <YStack className='justify-center items-center'>
         <Button variant='orangeround' onClick={handleExplode} className='z-10'>
           <Download />
@@ -73,7 +64,6 @@ export default function ButtonTabs() {
       <XStack className='p-10'>
         {activeCard === 'aboutMe' && <AboutMeCard />}
         {activeCard === 'experience' && <ExperienceCard />}
-        {activeCard === 'contact' && <ContactCard />}
         {activeCard === 'techstack' && <TechStackCard />}
       </XStack>
     </>
