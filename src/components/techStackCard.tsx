@@ -1,117 +1,95 @@
-import { YStack } from './ui/stacks';
-import { useState } from 'react';
-import { useSpring, animated } from '@react-spring/web';
+import { XStack, YStack } from './ui/stacks';
 
 const useTechCardConfig = () => {
   return [
     {
       title: 'Storybook',
-      description: 'I use storybook to design and test components in isolation',
+      imgSrc:"https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/storybook/storybook-original.svg"
     },
     {
       title: 'Jest',
-      description: 'I use storybook to design and test components in isolation',
+      imgSrc:"https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/jest/jest-plain.svg"
     },
     {
       title: 'React Testing Library',
-      description: 'I use storybook to design and test components in isolation',
+      imgSrc:'/react-testing.png'
     },
     {
       title: 'Figma',
-      description: 'I use storybook to design and test components in isolation',
+      imgSrc:"https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/figma/figma-original.svg"
     },
     {
       title: 'GitHub',
-      description: 'I use storybook to design and test components in isolation',
+      imgSrc:"https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/github/github-original.svg"
     },
     {
       title: 'TanStack',
-      description: 'I use storybook to design and test components in isolation',
+      imgSrc:'/tanstack.png'
     },
     {
       title: 'Expo',
-      description: 'I use storybook to design and test components in isolation',
+      imgSrc:'/expo.svg'
     },
     {
       title: 'Zod',
-      description: 'I use storybook to design and test components in isolation',
+      imgSrc:'/zod.svg'
     },
     {
       title: 'JavaScript',
-      description: 'I use storybook to design and test components in isolation',
+      imgSrc: "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/javascript/javascript-original.svg",
     },
     {
       title: 'TypeScript',
-      description: 'I use storybook to design and test components in isolation',
+      imgSrc: "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/typescript/typescript-original.svg",
     },
     {
       title: 'HTML',
-      description: 'I use storybook to design and test components in isolation',
+      imgSrc:"https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/html5/html5-original.svg"
     },
     {
       title: 'CSS',
-      description: 'I use storybook to design and test components in isolation',
+      imgSrc:"https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/css3/css3-original.svg"
     },
     {
       title: 'React',
-      description: 'I use storybook to design and test components in isolation',
+      imgSrc:"https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/react/react-original.svg"
     },
     {
       title: 'React Native',
-      description: 'I use storybook to design and test components in isolation',
+      imgSrc:"https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/react/react-original.svg"
     },
     {
       title: 'Next.js',
-      description: 'I use storybook to design and test components in isolation',
+      imgSrc:"https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/nextjs/nextjs-original.svg"
     },
     {
       title: 'Tailwind',
-      description: 'I use storybook to design and test components in isolation',
+      imgSrc:"https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/tailwindcss/tailwindcss-original.svg"
     },
     {
       title: 'PandaCSS',
-      description: 'I use storybook to design and test components in isolation',
+      imgSrc:'/pandacss.svg'
     },
   ];
 };
 
 function TechCard({
   title,
-  description,
+  imgSrc,
 }: {
   title: string;
-  description: string;
+  imgSrc:string | undefined;
 }) {
-  const [flipped, setFlipped] = useState(false);
 
-  const styles = useSpring({
-    transform: flipped ? 'rotateY(180deg)' : 'rotateY(0deg)',
-    config: { tension: 0, friction: 5 },
-  });
 
   return (
-    <div style={{ perspective: 500 }} onClick={() => setFlipped(!flipped)}>
-      <animated.div
-        className='text-center w-[150px] h-[150px] relative hover:translate-y-[-9px] hover:translate-x-[-6px] transition-all shadow-[2px_3px_0px_0px_rgba(0,0,0,1)] hover:shadow-[5px_6px_0px_0px_rgba(0,0,0,1)]'
-        style={{
-          ...styles,
-          transformStyle: 'preserve-3d',
-        }}
+      <XStack
+        className='bg-white items-center gap-2 p-2 justify-center rounded-md shadow-[3px_3px_0px_0px_rgba(0,0,0,1)] hover:shadow-[5px_5px_0px_0px_rgba(0,0,0,1)] hover:translate-y-[-4px] hover:translate-x-[-2px] transition-all duration-950'
       >
-        <div className='absolute w-full h-full backface-hidden bg-white flex items-center justify-center rounded-md'>
-          <h3>{title}</h3>
-        </div>
-        <div
-          className='absolute w-full h-full rotate-y-180 bg-gray-200 flex items-center justify-center rounded-md'
-          style={{
-            backfaceVisibility: 'hidden',
-            transform: 'rotateY(180deg)',
-          }}
-        >
-          <h3>{description}</h3>
-        </div>
-      </animated.div>
-    </div>
+        <img width={30} src={imgSrc} alt={imgSrc}/>
+        <p>{title}</p>
+      </XStack>
+
   );
 }
 
@@ -124,7 +102,7 @@ function TechStackCard() {
         <TechCard
           key={card.title}
           title={card.title}
-          description={card.description}
+          imgSrc={card.imgSrc}
         />
       ))}
     </YStack>
