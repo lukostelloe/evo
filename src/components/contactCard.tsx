@@ -1,5 +1,5 @@
 import { XStack, YStack } from './ui/stacks';
-import { FileJson, Handshake, Mail } from 'lucide-react';
+import { Mail } from 'lucide-react';
 
 function ContactCard() {
   return (
@@ -9,7 +9,7 @@ function ContactCard() {
         <a href='mailto:lukostelloe@gmail.com'>Send me an Email</a>
       </XStack>
       <XStack className='cursor-pointer items-center gap-2'>
-        <FileJson />
+      <img width={25} src='/github.svg' alt='github' />
         <a
           href='https://github.com/lukostelloe'
           target='_blank'
@@ -19,7 +19,7 @@ function ContactCard() {
         </a>
       </XStack>
       <XStack className='cursor-pointer items-center gap-2'>
-        <Handshake />
+        <img width={25} src='/linkedin.svg' alt='linkedin' />
         <a
           href='https://www.linkedin.com/in/lukecostelloe/'
           target='_blank'
