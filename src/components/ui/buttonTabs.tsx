@@ -18,7 +18,7 @@ export default function ButtonTabs() {
 
   return (
     <>
-      <XStack className='bg-white p-6 gap-2 rounded-full'>
+      <XStack className="bg-white p-6 gap-2 rounded-full shadow-md" >
         <Button
           className={`${activeCard === 'aboutMe' ? activeStyles : ''}`}
           variant='orangeround'
@@ -56,8 +56,7 @@ export default function ButtonTabs() {
           Download my CV
         </Button>
       </XStack>
-      <XStack className='bg-white p-10 gap-2 rounded-full h-100'>
-        {/* Conditional Rendering based on activeCard state */}
+      <XStack className='p-10'>
         {activeCard === 'aboutMe' && <AboutMeCard />}
         {activeCard === 'experience' && <ExperienceCard />}
         {activeCard === 'contact' && <ContactCard />}

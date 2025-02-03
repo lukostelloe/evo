@@ -1,11 +1,11 @@
 import { useState, useEffect } from 'react';
 
 const Typewriter = ({ text, delay }: { text: string; delay: number }) => {
-  const [currentText, setCurrentText] = useState("");
+  const [currentText, setCurrentText] = useState('');
   const [currentIndex, setCurrentIndex] = useState(0);
 
   useEffect(() => {
-    setCurrentText("");
+    setCurrentText('');
     setCurrentIndex(0);
   }, [text]);
 

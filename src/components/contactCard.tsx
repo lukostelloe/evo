@@ -9,7 +9,7 @@ function ContactCard() {
         <a href='mailto:lukostelloe@gmail.com'>Send me an Email</a>
       </XStack>
       <XStack className='cursor-pointer items-center gap-2'>
-      <img width={25} src='/github.svg' alt='github' />
+        <img width={25} src='/github.svg' alt='github' />
         <a
           href='https://github.com/lukostelloe'
           target='_blank'
