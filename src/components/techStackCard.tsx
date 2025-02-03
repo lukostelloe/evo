@@ -119,7 +119,7 @@ function TechStackCard() {
   const techCardConfig = useTechCardConfig();
 
   return (
-    <YStack className='grid grid-cols-4 gap-4'>
+    <YStack className='grid grid-cols-5 gap-3 w-[900px]'>
       {techCardConfig.map((card) => (
         <TechCard
           key={card.title}

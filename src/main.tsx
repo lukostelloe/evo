@@ -7,7 +7,7 @@ import SiteHeader from './components/site-header.tsx';
 import { ThemeProvider } from './components/theme-provider.tsx';
 
 createRoot(document.getElementById('root')!).render(
-  <ThemeProvider defaultTheme="light" storageKey="evo-ui-theme">
+  <ThemeProvider defaultTheme='light' storageKey='evo-ui-theme'>
     <StrictMode>
       <SiteHeader />
       <App />
