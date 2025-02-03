@@ -19,7 +19,6 @@ export default function ButtonTabs() {
 
   function handleExplode() {
     setIsExploding(true);
-    console.log(isExploding);
   }
 
   return (
