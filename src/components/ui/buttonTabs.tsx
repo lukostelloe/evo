@@ -64,7 +64,7 @@ export default function ButtonTabs() {
           <Download />
           Download my CV
         </Button>
-        {isExploding && <ConfettiExplosion zIndex={9} width={500} duration={2000} onComplete={()=>setIsExploding(false)}/>}
+        {isExploding && <ConfettiExplosion force={0.3} zIndex={9} width={350} duration={2000} onComplete={()=>setIsExploding(false)}/>}
         </YStack>
 
 
