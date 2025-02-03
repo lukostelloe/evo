@@ -20,7 +20,7 @@ const Typewriter = ({ text, delay }: { text: string; delay: number }) => {
     }
   }, [currentIndex, delay, text]);
 
-  return <span>{currentText}</span>;
+  return <p className='text-[var(--text)]'>{currentText}</p>;
 };
 
 export default Typewriter;
