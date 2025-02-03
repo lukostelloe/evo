@@ -2,6 +2,11 @@
 {
     "hey_im":"Hey, I'm",
     "software_developer":"Software Developer",
-    "about_me_text":"I'm a developer based in Nice, specialising in Front-End development. I love making things."
+    "about_me_text":"I'm a developer based in Nice, specialising in Front-End development. I love making things.",
+    "contact_card":{
+        "send_me_an_email":"Send me an email",
+        "go_see_my_github":"Go see my Github",
+        "connect_on_linkedin":"Connect with me on Linkedin"
+    }
 }
   

@@ -2,7 +2,12 @@
 {
     "hey_im":"Salut, moi c'est",
     "software_developer": "Développeur logiciel",
-    "about_me_text": "Je suis un développeur basé à Nice, spécialisé dans le développement Front-End. J'adore créer des choses."
+    "about_me_text": "Je suis un développeur basé à Nice, spécialisé dans le développement Front-End. J'adore créer des choses.",
+    "contact_card": {
+        "send_me_an_email": "Envoyez-moi un e-mail",
+        "go_see_my_github": "Allez voir mon Github",
+        "connect_on_linkedin": "Connectez-vous avec moi sur LinkedIn"
+}
 }
 
   

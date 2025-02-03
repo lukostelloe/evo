@@ -7,7 +7,7 @@ function AboutMeCard() {
 
   return (
     <XStack className='items-start gap-2'>
-      <img width={30} height={30} src='/luke-id.jpeg' alt='luke' />
+      <img width={40} height={40} src='/luke-id.jpeg' alt='luke' />
       <XStack className='w-[800px]'>
         <Typewriter text={t('about_me_text')} delay={20} />
       </XStack>
