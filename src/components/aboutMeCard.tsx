@@ -24,19 +24,19 @@ const useContactConfig = () => {
   ];
 };
 
-function Contact({img, link}:{img:string;link:string}){
-  return(
-  <YStack className='border border-black rounded-full p-5'>
-    <a href={link} target="_blank">
-      <img src={img} alt={img}/>
-    </a>
-  </YStack>
-  )
+function Contact({ img, link }: { img: string; link: string }) {
+  return (
+    <YStack className='border border-black rounded-full p-5'>
+      <a href={link} target='_blank'>
+        <img src={img} alt={img} />
+      </a>
+    </YStack>
+  );
 }
 
 function AboutMeCard() {
   const { t } = useTranslation();
-  const contactConfig = useContactConfig()
+  const contactConfig = useContactConfig();
 
   return (
     <YStack className='items-start gap-2'>
@@ -45,10 +45,17 @@ function AboutMeCard() {
         <Typewriter text={t('about_me_text')} delay={20} />
       </XStack>
       <XStack className='bg-white p-5 border border-black rounded-full items-center gap-4'>
-            <img width={70} src='/luke-id.jpeg' alt='luke-id' className='rounded-full'/>
-            <XStack className='gap-5'>
-              {contactConfig.map(contact=><Contact img={contact.img} link={contact.link}/>)}
-            </XStack>
+        <img
+          width={70}
+          src='/luke-id.jpeg'
+          alt='luke-id'
+          className='rounded-full'
+        />
+        <XStack className='gap-5'>
+          {contactConfig.map((contact) => (
+            <Contact img={contact.img} link={contact.link} />
+          ))}
+        </XStack>
       </XStack>
     </YStack>
   );

@@ -17,15 +17,14 @@ export default function ButtonTabs() {
   const activeStyles =
     'bg-yellow-300 hover:bg-yellow-300 translate-y-[2px] shadow-[0px_0px_0px_0px_rgba(0,0,0,1)] border-2';
 
-
-    function handleExplode(){
-      setIsExploding(true)
-      console.log(isExploding)
-    }
+  function handleExplode() {
+    setIsExploding(true);
+    console.log(isExploding);
+  }
 
   return (
     <>
-      <XStack className="bg-white p-6 gap-2 rounded-full shadow-md" >
+      <XStack className='bg-white p-6 gap-2 rounded-full shadow-md'>
         <Button
           className={`${activeCard === 'aboutMe' ? activeStyles : ''}`}
           variant='orangeround'
@@ -51,15 +50,24 @@ export default function ButtonTabs() {
           Tech Stack
         </Button>
         <YStack className='justify-center items-center'>
-        <Button variant='orangeround' onClick={handleExplode} className='z-10'>
-          <Download />
-          Download my CV
-        </Button>
-        {isExploding && <ConfettiExplosion force={0.3} zIndex={9} width={350} duration={2000} onComplete={()=>setIsExploding(false)}/>}
+          <Button
+            variant='orangeround'
+            onClick={handleExplode}
+            className='z-10'
+          >
+            <Download />
+            Download my CV
+          </Button>
+          {isExploding && (
+            <ConfettiExplosion
+              force={0.3}
+              zIndex={9}
+              width={350}
+              duration={2000}
+              onComplete={() => setIsExploding(false)}
+            />
+          )}
         </YStack>
-
-
-
       </XStack>
       <XStack className='p-10'>
         {activeCard === 'aboutMe' && <AboutMeCard />}

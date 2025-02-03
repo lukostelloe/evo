@@ -1,84 +1,87 @@
-
-import { YStack} from "./ui/stacks";
-import { useState } from "react";
+import { YStack } from './ui/stacks';
+import { useState } from 'react';
 import { useSpring, animated } from '@react-spring/web';
 
 const useTechCardConfig = () => {
-
   return [
     {
       title: 'Storybook',
-      description:'I use storybook to design and test components in isolation'
+      description: 'I use storybook to design and test components in isolation',
     },
     {
       title: 'Jest',
-            description:'I use storybook to design and test components in isolation'
+      description: 'I use storybook to design and test components in isolation',
     },
     {
       title: 'React Testing Library',
-            description:'I use storybook to design and test components in isolation'
+      description: 'I use storybook to design and test components in isolation',
     },
     {
       title: 'Figma',
-            description:'I use storybook to design and test components in isolation'
+      description: 'I use storybook to design and test components in isolation',
     },
     {
       title: 'GitHub',
-            description:'I use storybook to design and test components in isolation'
+      description: 'I use storybook to design and test components in isolation',
     },
     {
       title: 'TanStack',
-            description:'I use storybook to design and test components in isolation'
+      description: 'I use storybook to design and test components in isolation',
     },
     {
       title: 'Expo',
-            description:'I use storybook to design and test components in isolation'
+      description: 'I use storybook to design and test components in isolation',
     },
     {
       title: 'Zod',
-            description:'I use storybook to design and test components in isolation'
+      description: 'I use storybook to design and test components in isolation',
     },
     {
       title: 'JavaScript',
-            description:'I use storybook to design and test components in isolation'
+      description: 'I use storybook to design and test components in isolation',
     },
     {
       title: 'TypeScript',
-            description:'I use storybook to design and test components in isolation'
+      description: 'I use storybook to design and test components in isolation',
     },
     {
       title: 'HTML',
-            description:'I use storybook to design and test components in isolation'
+      description: 'I use storybook to design and test components in isolation',
     },
     {
       title: 'CSS',
-            description:'I use storybook to design and test components in isolation'
+      description: 'I use storybook to design and test components in isolation',
     },
     {
       title: 'React',
-            description:'I use storybook to design and test components in isolation'
+      description: 'I use storybook to design and test components in isolation',
     },
     {
       title: 'React Native',
-            description:'I use storybook to design and test components in isolation'
+      description: 'I use storybook to design and test components in isolation',
     },
     {
       title: 'Next.js',
-            description:'I use storybook to design and test components in isolation'
+      description: 'I use storybook to design and test components in isolation',
     },
     {
       title: 'Tailwind',
-            description:'I use storybook to design and test components in isolation'
+      description: 'I use storybook to design and test components in isolation',
     },
     {
       title: 'PandaCSS',
-            description:'I use storybook to design and test components in isolation'
+      description: 'I use storybook to design and test components in isolation',
     },
   ];
 };
 
-function TechCard({title, description}:{title:string; description:string}){
-
+function TechCard({
+  title,
+  description,
+}: {
+  title: string;
+  description: string;
+}) {
   const [flipped, setFlipped] = useState(false);
 
   const styles = useSpring({
@@ -86,19 +89,20 @@ function TechCard({title, description}:{title:string; description:string}){
     config: { tension: 0, friction: 5 },
   });
 
-  return(
+  return (
     <div style={{ perspective: 500 }} onClick={() => setFlipped(!flipped)}>
       <animated.div
-        className="w-[150px] h-[150px] relative hover:translate-y-[-9px] hover:translate-x-[-6px] transition-all shadow-[2px_3px_0px_0px_rgba(0,0,0,1)] hover:shadow-[5px_6px_0px_0px_rgba(0,0,0,1)]"
+        className='text-center w-[150px] h-[150px] relative hover:translate-y-[-9px] hover:translate-x-[-6px] transition-all shadow-[2px_3px_0px_0px_rgba(0,0,0,1)] hover:shadow-[5px_6px_0px_0px_rgba(0,0,0,1)]'
         style={{
           ...styles,
           transformStyle: 'preserve-3d',
         }}
       >
-        <div className="absolute w-full h-full backface-hidden bg-white flex items-center justify-center">
+        <div className='absolute w-full h-full backface-hidden bg-white flex items-center justify-center rounded-md'>
           <h3>{title}</h3>
         </div>
-        <div className="absolute w-full h-full rotate-y-180 bg-gray-200 flex items-center justify-center"
+        <div
+          className='absolute w-full h-full rotate-y-180 bg-gray-200 flex items-center justify-center rounded-md'
           style={{
             backfaceVisibility: 'hidden',
             transform: 'rotateY(180deg)',
@@ -108,22 +112,23 @@ function TechCard({title, description}:{title:string; description:string}){
         </div>
       </animated.div>
     </div>
-  )
+  );
 }
 
 function TechStackCard() {
-
-  const techCardConfig = useTechCardConfig()
+  const techCardConfig = useTechCardConfig();
 
   return (
-     <YStack className="grid grid-cols-4 gap-4">
-   {techCardConfig.map(card => (
-     <TechCard key={card.title} title={card.title} description={card.description}/>
-   ))}
- </YStack>
-  )
+    <YStack className='grid grid-cols-4 gap-4'>
+      {techCardConfig.map((card) => (
+        <TechCard
+          key={card.title}
+          title={card.title}
+          description={card.description}
+        />
+      ))}
+    </YStack>
+  );
 }
 
 export default TechStackCard;
-
-
