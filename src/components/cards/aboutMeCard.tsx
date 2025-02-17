@@ -1,7 +1,7 @@
-import Typewriter from './typewriter';
+import Typewriter from '../typewriter';
 import { useTranslation } from 'react-i18next';
-import { XStack, YStack } from './ui/stacks';
-import Intro from './intro';
+import { XStack, YStack } from '../ui/stacks';
+import Intro from '../intro';
 
 function AboutMeCard() {
   const { t } = useTranslation();

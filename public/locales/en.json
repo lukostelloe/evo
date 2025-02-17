@@ -3,10 +3,13 @@
     "hey_im":"Hey, I'm",
     "software_developer":"Software Developer",
     "about_me_text":"I'm a developer based in Nice, specialising in Front-End development. I love making things.",
-    "contact_card":{
-        "send_me_an_email":"Send me an email",
-        "go_see_my_github":"Go see my Github",
-        "connect_on_linkedin":"Connect with me on Linkedin"
+    "experience_card":{
+        "monist_title":"Front-end Developer",
+        "breachquest_title":"Front-end Developer",
+        "BANGK_title":"Full stack developer",
+        "monist_desc":"With Monist Studio, I worked with website design and developed performant and responsive websites for clients",
+        "breachquest_desc":"With Breachquest, I worked with a talented team of developers, working on Priori, a cutting edge cyber attack notification system",
+        "BANGK_desc":"With BANGK, I had the opportunity to create a variety of applications for a fintech platform, including a native application, a website and an internal dashboard"
     }
 }
   

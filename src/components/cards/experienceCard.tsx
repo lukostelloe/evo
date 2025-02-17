@@ -1,31 +1,39 @@
-import { XStack, YStack } from './ui/stacks';
+import { XStack, YStack } from '../ui/stacks'
+import { useTranslation } from 'react-i18next';
 
-const experienceConfig = [
-  {
-    link: 'https://monist.studio/',
-    companyName: 'Monist Studio',
-    img: '/monist.jpeg',
-    description: 'Web Solutions',
-    title: 'Front-end Developer',
-    info: 'With Monist Studio, I worked with website design and developed performant and responsive websites for clients',
-  },
-  {
-    link: 'https://www.breachquest.com/',
-    companyName: 'BreachQuest',
-    img: '/breachquest.jpeg',
-    description: 'Cybersecurity',
-    title: 'Front-end Developer',
-    info: 'With Breachquest, I worked with a talented team of developers, working on Priori, a cutting edge cyber attack notification system',
-  },
-  {
-    link: 'https://bangk.app/',
-    companyName: 'BANGK',
-    img: '/bangk.jpeg',
-    description: 'Fintech',
-    title: 'Full stack developer Fintech',
-    info: 'With BANGK, I had the opportunity to create a variety of applications for a fintech platform, including a native application, a website and an internal dashboard',
-  },
-];
+
+const useExperienceConfig = () => {
+
+  const { t } = useTranslation("", { keyPrefix: "experience_card" });
+
+  return [
+    {
+      link: 'https://monist.studio/',
+      companyName: 'Monist Studio',
+      img: '/monist.jpeg',
+      description: 'Web Solutions',
+      title: t('monist_title'),
+      info: t('monist_desc'),
+    },
+    {
+      link: 'https://www.breachquest.com/',
+      companyName: 'BreachQuest',
+      img: '/breachquest.jpeg',
+      description: 'Cybersecurity',
+      title: t('breachquest_title'),
+      info: t('breachquest_desc'),
+    },
+    {
+      link: 'https://bangk.app/',
+      companyName: 'BANGK',
+      img: '/bangk.jpeg',
+      description: 'Fintech',
+      title: t('BANGK_title'),
+      info: t('BANGK_desc'),
+    },
+  ]
+}
+
 
 function Experience({
   link,
@@ -62,6 +70,9 @@ function Experience({
 }
 
 function ExperienceCard() {
+
+  const experienceConfig = useExperienceConfig()
+
   return (
     <XStack className='gap-6'>
       {experienceConfig.map((exp) => (

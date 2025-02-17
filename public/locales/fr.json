@@ -3,11 +3,14 @@
     "hey_im":"Salut, moi c'est",
     "software_developer": "Développeur logiciel",
     "about_me_text": "Je suis un développeur basé à Nice, spécialisé dans le développement Front-End. J'adore créer des choses.",
-    "contact_card": {
-        "send_me_an_email": "Envoyez-moi un e-mail",
-        "go_see_my_github": "Allez voir mon Github",
-        "connect_on_linkedin": "Connectez-vous avec moi sur LinkedIn"
-}
+    "experience_card": {
+        "monist_title": "Développeur Front-end",
+        "breachquest_title": "Développeur Front-end",
+        "BANGK_title": "Développeur Full-stack",
+    "monist_desc": "Avec Monist Studio, j'ai travaillé sur la conception de sites web et       développé des sites performants et responsifs pour des clients.",
+    "breachquest_desc": "Avec Breachquest, j'ai collaboré avec une équipe talentueuse de     développeurs sur Priori, un système de notification de cyberattaques de pointe.",
+    "BANGK_desc": "Avec BANGK, j'ai eu l'opportunité de créer diverses applications pour une plateforme fintech, notamment une application native, un site web et un tableau de bord interne."
+    }
 }
 
   

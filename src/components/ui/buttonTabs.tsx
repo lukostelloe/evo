@@ -3,20 +3,15 @@ import { Button } from './button';
 import { XStack, YStack } from './stacks';
 import ConfettiExplosion from 'react-confetti-explosion';
 import { CircleCheck, Code, Download, Smile } from 'lucide-react';
-import { useButtonTabState } from '../../store/activeTabStore'
+import { useButtonTabState } from '../../store/activeTabStore';
 
 export default function ButtonTabs() {
-
-
-
   const [isExploding, setIsExploding] = useState(false);
   const { activeCard, changeButtonTab } = useButtonTabState();
 
   const handleButtonClick = (card: string) => {
     changeButtonTab(card);
   };
-
-
 
   const activeStyles =
     'bg-yellow-300 hover:bg-yellow-300 translate-y-[2px] shadow-[0px_0px_0px_0px_rgba(0,0,0,1)] border-2';

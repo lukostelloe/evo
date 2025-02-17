@@ -5,12 +5,10 @@ import ButtonTabs from './ui/buttonTabs';
 import { XStack } from './ui/stacks';
 
 function SiteHeader() {
-
-
   return (
     <XStack className='fixed top-0 left-0 w-full z-10 items-center justify-between p-5'>
       <XStack className='items-center gap-6'>
-        <h3 className='font-bold'>Luke Costelloe</h3>
+        <h3 className='font-bold text-[var(--text)]'>Luke Costelloe</h3>
         <ContactButtons />
       </XStack>
       <ButtonTabs />

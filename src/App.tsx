@@ -1,7 +1,7 @@
 import { XStack, YStack } from './components/ui/stacks';
-import AboutMeCard from './components/aboutMeCard';
-import ExperienceCard from './components/experienceCard';
-import TechStackCard from './components/techStackCard';
+import AboutMeCard from './components/cards/aboutMeCard';
+import ExperienceCard from './components/cards/experienceCard';
+import TechStackCard from './components/cards/techStackCard';
 import { useButtonTabState } from './store/activeTabStore';
 
 export default function App() {
