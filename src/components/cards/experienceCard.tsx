@@ -1,10 +1,8 @@
-import { XStack, YStack } from '../ui/stacks'
+import { XStack, YStack } from '../ui/stacks';
 import { useTranslation } from 'react-i18next';
 
-
 const useExperienceConfig = () => {
-
-  const { t } = useTranslation("", { keyPrefix: "experience_card" });
+  const { t } = useTranslation('', { keyPrefix: 'experience_card' });
 
   return [
     {
@@ -31,9 +29,8 @@ const useExperienceConfig = () => {
       title: t('BANGK_title'),
       info: t('BANGK_desc'),
     },
-  ]
-}
-
+  ];
+};
 
 function Experience({
   link,
@@ -70,8 +67,7 @@ function Experience({
 }
 
 function ExperienceCard() {
-
-  const experienceConfig = useExperienceConfig()
+  const experienceConfig = useExperienceConfig();
 
   return (
     <XStack className='gap-6'>
