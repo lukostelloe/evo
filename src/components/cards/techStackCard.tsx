@@ -1,15 +1,17 @@
 import { XStack, YStack } from '../ui/stacks';
 import { motion } from 'framer-motion';
 import { useState } from 'react';
+import { useTranslation } from 'react-i18next';
 
 const useTechCardConfig = () => {
+
+  const {t} = useTranslation("",{keyPrefix:'tech_stack_card'})
+
   return [
     {
       title: 'Storybook',
-      imgSrc:
-        'https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/storybook/storybook-original.svg',
-      description:
-        'I use Storybook to test and develop components independent to the application, this ensures components are well built, with zero bugs',
+      imgSrc: 'https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/storybook/storybook-original.svg',
+      description: t('storybook'),
     },
     {
       title: 'Jest',

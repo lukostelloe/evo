@@ -10,6 +10,9 @@
         "monist_desc":"With Monist Studio, I worked with website design and developed performant and responsive websites for clients",
         "breachquest_desc":"With Breachquest, I worked with a talented team of developers, working on Priori, a cutting edge cyber attack notification system",
         "BANGK_desc":"With BANGK, I had the opportunity to create a variety of applications for a fintech platform, including a native application, a website and an internal dashboard"
+    },
+    "tech_stack_card":{
+        "storybook":"I use Storybook to test and develop components independent to the application, this ensures components are well built, with zero bugs"
     }
 }
   

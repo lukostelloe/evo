@@ -19,7 +19,7 @@ const useContactConfig = () => {
 
 function Contact({ img, link }: { img: string; link: string }) {
   return (
-    <YStack className='bg-white border border-black rounded-full p-2'>
+    <YStack className='bg-white border border-black rounded-full p-2 cursor-pointer'>
       <a href={link} target='_blank'>
         <img src={img} alt={img} />
       </a>
