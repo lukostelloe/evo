@@ -142,8 +142,8 @@ function TechCard({
       onMouseLeave={onMouseLeave}
     >
       <XStack
-        className='bg-white items-center gap-2 p-2 justify-center rounded-md shadow-[3px_3px_0px_0px_rgba(0,0,0,1)] hover:shadow-[5px_5px_0px_0px_rgba(0,0,0,1)] hover:translate-y-[-4px] hover:translate-x-[-2px] transition-all duration-950 w-full'
-        style={{ width: '150px' }} // Set a fixed width for all cards
+        className='bg-white items-center gap-2 p-2 justify-center shadow-[3px_3px_0px_0px_rgba(0,0,0,1)] hover:shadow-[5px_5px_0px_0px_rgba(0,0,0,1)] hover:translate-y-[-4px] hover:translate-x-[-2px] transition-all duration-950 w-full'
+        style={{ width: '150px', borderRadius: '6px' }} // Set a fixed width for all cards
       >
         <img width={30} src={imgSrc} alt={title} />
         <p className='text-center'>{title}</p>
@@ -176,7 +176,7 @@ function TechStackCard() {
               type: 'spring', // Using spring animation for bounce
               stiffness: 100, // Control how tight the bounce is
               damping: 10, // Control how quickly the bounce settles
-              duration: 0.5, // Total animation duration
+              duration: 0.4, // Total animation duration
               delay: index * 0.05, // Small delay based on index for staggered effect
             }}
             className='flex justify-center'
