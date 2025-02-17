@@ -2,6 +2,7 @@ import { XStack, YStack } from '../ui/stacks';
 import { motion } from 'framer-motion';
 import { useState } from 'react';
 import { useTranslation } from 'react-i18next';
+import Typewriter from '../typewriter';
 
 const useTechCardConfig = () => {
 
@@ -196,9 +197,9 @@ function TechStackCard() {
         initial={{ opacity: 0, y: 100 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.5, ease: 'easeOut' }}
-        className='bg-white border w-1/3 border-black p-5 rounded-lg shadow-[5px_5px_0px_0px_rgba(0,0,0,1)] hover:shadow-[11px_12px_0px_0px_rgba(0,0,0,1)] hover:translate-y-[-9px] hover:translate-x-[-6px] gap-2'
+        className='p-5 rounded-lg gap-2 w-full'
       >
-        {activeCard.description}
+      <Typewriter text={activeCard.description} delay={30}/>
       </motion.div>
     </YStack>
   );
