@@ -1,18 +1,22 @@
 import { useState } from 'react';
 import { Button } from './button';
 import { XStack, YStack } from './stacks';
-import AboutMeCard from '../aboutMeCard';
-import TechStackCard from '../techStackCard';
-import ExperienceCard from '../experienceCard';
 import ConfettiExplosion from 'react-confetti-explosion';
 import { CircleCheck, Code, Download, Smile } from 'lucide-react';
+import { useButtonTabState } from '../../store/activeTabStore'
 
 export default function ButtonTabs() {
+
+
+
   const [isExploding, setIsExploding] = useState(false);
-  const [activeCard, setActiveCard] = useState<string>('aboutMe');
+  const { activeCard, changeButtonTab } = useButtonTabState();
+
   const handleButtonClick = (card: string) => {
-    setActiveCard(card);
+    changeButtonTab(card);
   };
+
+
 
   const activeStyles =
     'bg-yellow-300 hover:bg-yellow-300 translate-y-[2px] shadow-[0px_0px_0px_0px_rgba(0,0,0,1)] border-2';
@@ -23,7 +27,7 @@ export default function ButtonTabs() {
 
   return (
     <>
-      <XStack className='bg-white p-6 border border-black rounded-lg gap-2 rounded-full'>
+      <XStack className='p-3 gap-2 rounded-full'>
         <Button
           className={`${activeCard === 'aboutMe' ? activeStyles : ''}`}
           variant='orangeround'
@@ -67,11 +71,6 @@ export default function ButtonTabs() {
             />
           )}
         </YStack>
-      </XStack>
-      <XStack className='p-10'>
-        {activeCard === 'aboutMe' && <AboutMeCard />}
-        {activeCard === 'experience' && <ExperienceCard />}
-        {activeCard === 'techstack' && <TechStackCard />}
       </XStack>
     </>
   );
