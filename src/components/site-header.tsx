@@ -1,17 +1,23 @@
-import ContactButtons from './contactButtons';
+
+import { useMediaQuery } from '@/hooks/useMediaQuery';
 import LanguageDropdown from './language-dropdown';
 import ThemeSelect from './theme-select';
-import ButtonTabs from './ui/buttonTabs';
+import { SidebarTrigger } from './ui/sidebar';
 import { XStack } from './ui/stacks';
+import ButtonTabs from './ui/buttonTabs';
 
 function SiteHeader() {
+  const isSmallScreen = useMediaQuery('max','md')
+
   return (
-    <XStack className='fixed top-0 left-0 w-full z-10 items-center justify-between p-5'>
+    <XStack className='fixed top-0 left-0 w-full items-center justify-between p-5 h-[60px]'>
       <XStack className='items-center gap-6'>
+      {
+        isSmallScreen ? <SidebarTrigger />:null
+      }
         <h3 className='font-bold text-[var(--text)]'>Luke Costelloe</h3>
-        <ContactButtons />
       </XStack>
-      <ButtonTabs />
+      {!isSmallScreen && <ButtonTabs/>}
       <XStack className='gap-3 items-center'>
         <LanguageDropdown />
         <ThemeSelect />

@@ -70,7 +70,7 @@ function ExperienceCard() {
   const experienceConfig = useExperienceConfig();
 
   return (
-    <XStack className='gap-6'>
+    <XStack className='gap-6 rounded-lg'>
       {experienceConfig.map((exp) => (
         <Experience
           link={exp.link}

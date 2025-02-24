@@ -8,25 +8,25 @@ function AboutMeCard() {
   const { t } = useTranslation();
 
   return (
-    <YStack className='items-start gap-8'>
+    <YStack className='items-start xs:itmes-center sm:items-center md:items-center gap-8'>
       <XStack className='gap-5'>
       <Intro />
       <motion.div
-        initial={{ y: -300 }} // Start slightly above the screen
-        animate={{ y: 0 }} // Animate to the grid position
+        initial={{ y: -300 }}
+        animate={{ y: 0 }}
         transition={{
-          type: 'spring', // Using spring animation for bounce
-          stiffness: 100, // Control how tight the bounce is
-          damping: 10, // Control how quickly the bounce settles
-          duration: 0.3, // Total animation duration
-          delay: 0.3, // Small delay based on index for staggered effect
+          type: 'spring',
+          stiffness: 100,
+          damping: 10,
+          duration: 0.3,
+          delay: 0.3,
         }}
         className='flex justify-center'
       >
         <h1 className='text-5xl font-bold text-[var(--text)]'>👋</h1>
       </motion.div>
       </XStack>
-      <XStack className='w-[1000px] gap-5 items-center'>
+      <XStack className='sm:w-3/4 md:w-1/2 lg:w-[900px] xl:w-[1000px] gap-5 items-center'>
         <img
           width={60}
           height={60}

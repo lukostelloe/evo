@@ -1,13 +1,15 @@
 import { useState } from 'react';
 import { Button } from './button';
-import { XStack, YStack } from './stacks';
+import { Stack, XStack, YStack } from './stacks';
 import ConfettiExplosion from 'react-confetti-explosion';
 import { CircleCheck, Code, Download, Smile } from 'lucide-react';
 import { useButtonTabState } from '../../store/activeTabStore';
+import { useMediaQuery } from '@/hooks/useMediaQuery';
 
 export default function ButtonTabs() {
   const [isExploding, setIsExploding] = useState(false);
   const { activeCard, changeButtonTab } = useButtonTabState();
+  const isSmallScreen = useMediaQuery('max','md')
 
   const handleButtonClick = (card: string) => {
     changeButtonTab(card);
@@ -21,8 +23,7 @@ export default function ButtonTabs() {
   }
 
   return (
-    <>
-      <XStack className='p-3 gap-2 rounded-full'>
+    <Stack className="p-3 gap-2 rounded-full flex sm:flex-row flex-col items-center justify-center">
         <Button
           className={`${activeCard === 'aboutMe' ? activeStyles : ''}`}
           variant='orangeround'
@@ -66,7 +67,6 @@ export default function ButtonTabs() {
             />
           )}
         </YStack>
-      </XStack>
-    </>
+      </Stack>
   );
 }

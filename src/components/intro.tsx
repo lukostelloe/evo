@@ -20,8 +20,8 @@ export default function Intro() {
       className='flex justify-center'
     >
       <YStack className='gap-2 items-start w-full'>
-        <h1 className='text-5xl font-bold text-[var(--text)]'>Hey, I'm Luke</h1>
-        <h1 className='text-3xl font-bold text-[var(--text)]'>
+        <h1 className='text-4xl sm:text-5xl font-bold text-[var(--text)]'>Hey, I'm Luke</h1>
+        <h1 className='text-3xl sm:text-5l font-bold text-[var(--text)]'>
           {t('software_developer')}
         </h1>
       </YStack>
