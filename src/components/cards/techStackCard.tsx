@@ -5,13 +5,13 @@ import { useTranslation } from 'react-i18next';
 import Typewriter from '../typewriter';
 
 const useTechCardConfig = () => {
-
-  const {t} = useTranslation("",{keyPrefix:'tech_stack_card'})
+  const { t } = useTranslation('', { keyPrefix: 'tech_stack_card' });
 
   return [
     {
       title: 'Storybook',
-      imgSrc: 'https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/storybook/storybook-original.svg',
+      imgSrc:
+        'https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/storybook/storybook-original.svg',
       description: t('storybook'),
     },
     {
@@ -167,7 +167,7 @@ function TechStackCard() {
 
   return (
     <YStack className='items-center gap-8'>
-      <YStack className='grid grid-cols-5 gap-3 w-[900px]'>
+      <YStack className='grid grid-cols-1 sm:grid-cols-5 gap-3 w-full'>
         {techCardConfig.map((card, index) => (
           <motion.div
             key={index}
@@ -199,7 +199,7 @@ function TechStackCard() {
         transition={{ duration: 0.5, ease: 'easeOut' }}
         className='p-5 rounded-lg gap-2 w-full'
       >
-      <Typewriter text={activeCard.description} delay={30}/>
+        <Typewriter text={activeCard.description} delay={30} />
       </motion.div>
     </YStack>
   );

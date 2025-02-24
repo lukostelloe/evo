@@ -1,15 +1,13 @@
 import { useState } from 'react';
 import { Button } from './button';
-import { Stack, XStack, YStack } from './stacks';
+import { Stack, YStack } from './stacks';
 import ConfettiExplosion from 'react-confetti-explosion';
 import { CircleCheck, Code, Download, Smile } from 'lucide-react';
 import { useButtonTabState } from '../../store/activeTabStore';
-import { useMediaQuery } from '@/hooks/useMediaQuery';
 
 export default function ButtonTabs() {
   const [isExploding, setIsExploding] = useState(false);
   const { activeCard, changeButtonTab } = useButtonTabState();
-  const isSmallScreen = useMediaQuery('max','md')
 
   const handleButtonClick = (card: string) => {
     changeButtonTab(card);
@@ -23,50 +21,46 @@ export default function ButtonTabs() {
   }
 
   return (
-    <Stack className="p-3 gap-2 rounded-full flex sm:flex-row flex-col items-center justify-center">
-        <Button
-          className={`${activeCard === 'aboutMe' ? activeStyles : ''}`}
-          variant='orangeround'
-          onClick={() => handleButtonClick('aboutMe')}
-        >
-          <Smile />
-          About me
+    <Stack className='p-3 gap-2 rounded-full flex sm:flex-row flex-col items-center justify-center'>
+      <Button
+        className={`${activeCard === 'aboutMe' ? activeStyles : ''}`}
+        variant='orangeround'
+        onClick={() => handleButtonClick('aboutMe')}
+      >
+        <Smile />
+        About me
+      </Button>
+      <Button
+        className={`${activeCard === 'experience' ? activeStyles : ''}`}
+        variant='orangeround'
+        onClick={() => handleButtonClick('experience')}
+      >
+        <CircleCheck />
+        Experience
+      </Button>
+      <Button
+        className={`${activeCard === 'techstack' ? activeStyles : ''}`}
+        variant='orangeround'
+        onClick={() => handleButtonClick('techstack')}
+      >
+        <Code />
+        Tech Stack
+      </Button>
+      <YStack className='justify-center items-center'>
+        <Button variant='orangeround' onClick={handleExplode} className='z-10'>
+          <Download />
+          Download my CV
         </Button>
-        <Button
-          className={`${activeCard === 'experience' ? activeStyles : ''}`}
-          variant='orangeround'
-          onClick={() => handleButtonClick('experience')}
-        >
-          <CircleCheck />
-          Experience
-        </Button>
-        <Button
-          className={`${activeCard === 'techstack' ? activeStyles : ''}`}
-          variant='orangeround'
-          onClick={() => handleButtonClick('techstack')}
-        >
-          <Code />
-          Tech Stack
-        </Button>
-        <YStack className='justify-center items-center'>
-          <Button
-            variant='orangeround'
-            onClick={handleExplode}
-            className='z-10'
-          >
-            <Download />
-            Download my CV
-          </Button>
-          {isExploding && (
-            <ConfettiExplosion
-              force={0.3}
-              zIndex={9}
-              width={350}
-              duration={2000}
-              onComplete={() => setIsExploding(false)}
-            />
-          )}
-        </YStack>
-      </Stack>
+        {isExploding && (
+          <ConfettiExplosion
+            force={0.3}
+            zIndex={9}
+            width={350}
+            duration={2000}
+            onComplete={() => setIsExploding(false)}
+          />
+        )}
+      </YStack>
+    </Stack>
   );
 }

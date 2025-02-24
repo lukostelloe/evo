@@ -1,4 +1,4 @@
-import { XStack, YStack } from '../ui/stacks';
+import { Stack, XStack, YStack } from '../ui/stacks';
 import { useTranslation } from 'react-i18next';
 
 const useExperienceConfig = () => {
@@ -48,7 +48,7 @@ function Experience({
   info: string;
 }) {
   return (
-    <YStack className='bg-white border w-1/3 border-black p-5 rounded-lg shadow-[5px_5px_0px_0px_rgba(0,0,0,1)] hover:shadow-[11px_12px_0px_0px_rgba(0,0,0,1)] hover:translate-y-[-9px] hover:translate-x-[-6px] transition-all duration-950 gap-2'>
+    <YStack className='bg-white border md:w-1/3 border-black p-5 rounded-lg shadow-[5px_5px_0px_0px_rgba(0,0,0,1)] hover:shadow-[11px_12px_0px_0px_rgba(0,0,0,1)] hover:translate-y-[-9px] hover:translate-x-[-6px] transition-all duration-950 gap-2'>
       <a href={link} target='_blank' rel='noopener noreferrer'>
         <XStack className='gap-2'>
           <img width={50} src={image} alt={image} />
@@ -70,7 +70,7 @@ function ExperienceCard() {
   const experienceConfig = useExperienceConfig();
 
   return (
-    <XStack className='gap-6 rounded-lg'>
+    <Stack className='gap-6 rounded-lg sm:flex-row flex-col'>
       {experienceConfig.map((exp) => (
         <Experience
           link={exp.link}
@@ -81,7 +81,7 @@ function ExperienceCard() {
           info={exp.info}
         />
       ))}
-    </XStack>
+    </Stack>
   );
 }
 
