@@ -18,108 +18,92 @@ const useTechCardConfig = () => {
       title: 'Jest',
       imgSrc:
         'https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/jest/jest-plain.svg',
-      description:
-        'Jest is my preferred testing method, it is fast and simple to use, with plenty of functionality built in',
+      description: t('jest'),
     },
     {
       title: 'RTL',
       imgSrc: '/react-testing.png',
-      description:
-        'Along with Jest, React Testing Library ensures high coverage of my projects, from the smallest components to full features',
+      description: t('rtl'),
     },
     {
       title: 'Figma',
       imgSrc:
         'https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/figma/figma-original.svg',
-      description:
-        'Along with Jest, React Testing Library ensures high coverage of my projects, from the smallest components to full features',
+      description:t('figma'),
     },
     {
       title: 'GitHub',
       imgSrc:
         'https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/github/github-original.svg',
-      description:
-        'Along with Jest, React Testing Library ensures high coverage of my projects, from the smallest components to full features',
+      description:t('github'),
     },
     {
       title: 'TanStack',
       imgSrc: '/tanstack.png',
-      description:
-        'Along with Jest, React Testing Library ensures high coverage of my projects, from the smallest components to full features',
+      description:t('tanstack'),
     },
     {
       title: 'Expo',
       imgSrc: '/expo.svg',
-      description:
-        'Along with Jest, React Testing Library ensures high coverage of my projects, from the smallest components to full features',
+      description:t('expo'),
     },
     {
       title: 'Zod',
       imgSrc: '/zod.svg',
-      description:
-        'Along with Jest, React Testing Library ensures high coverage of my projects, from the smallest components to full features',
+      description:t('zod'),
     },
     {
       title: 'JavaScript',
       imgSrc:
         'https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/javascript/javascript-original.svg',
-      description:
-        'Along with Jest, React Testing Library ensures high coverage of my projects, from the smallest components to full features',
+      description:t('javascript'),
     },
     {
       title: 'TypeScript',
       imgSrc:
         'https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/typescript/typescript-original.svg',
-      description:
-        'Along with Jest, React Testing Library ensures high coverage of my projects, from the smallest components to full features',
+      description:t('typescript'),
     },
     {
       title: 'HTML',
       imgSrc:
         'https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/html5/html5-original.svg',
-      description:
-        'Along with Jest, React Testing Library ensures high coverage of my projects, from the smallest components to full features',
+      description:t('html'),
     },
     {
       title: 'CSS',
       imgSrc:
         'https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/css3/css3-original.svg',
-      description:
-        'Along with Jest, React Testing Library ensures high coverage of my projects, from the smallest components to full features',
+      description:t('css'),
     },
     {
       title: 'React',
       imgSrc:
         'https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/react/react-original.svg',
-      description:
-        'Along with Jest, React Testing Library ensures high coverage of my projects, from the smallest components to full features',
+      description:t('react'),
     },
     {
       title: 'React Native',
       imgSrc:
         'https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/react/react-original.svg',
-      description:
-        'Along with Jest, React Testing Library ensures high coverage of my projects, from the smallest components to full features',
+      description:t('react_native'),
     },
     {
       title: 'Next.js',
       imgSrc:
         'https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/nextjs/nextjs-original.svg',
-      description:
-        'Along with Jest, React Testing Library ensures high coverage of my projects, from the smallest components to full features',
+      description:t('next'),
     },
     {
       title: 'Tailwind',
       imgSrc:
         'https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/tailwindcss/tailwindcss-original.svg',
-      description:
-        'Along with Jest, React Testing Library ensures high coverage of my projects, from the smallest components to full features',
+      description:t('tailwind'),
     },
     {
       title: 'PandaCSS',
       imgSrc: '/pandacss.svg',
-      description:
-        'Along with Jest, React Testing Library ensures high coverage of my projects, from the smallest components to full features',
+      description:t('panda_css'),
     },
   ];
 };

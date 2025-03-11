@@ -6,7 +6,7 @@ import { SidebarProvider } from './components/ui/sidebar';
 import { AppSidebar } from './components/ui/app-sidebar';
 import SiteHeader from './components/site-header';
 import { useMediaQuery } from './hooks/useMediaQuery';
-import SearchCard from './components/cards/searchCard';
+import TechStackCard from './components/cards/techStackCard';
 
 export default function App() {
   const { activeCard } = useButtonTabState();
@@ -21,8 +21,8 @@ export default function App() {
         <YStack className='flex-1 h-full text-slate-800 font-sans gap-3 pt-[150px] px-10'>
           {activeCard === 'aboutMe' && <AboutMeCard />}
           {activeCard === 'experience' && <ExperienceCard />}
-          {/* {activeCard === 'techstack' && <TechStackCard />} */}
-          {activeCard === 'techstack' && <SearchCard />}
+          {activeCard === 'techstack' && <TechStackCard />}
+          {/* {activeCard === 'techstack' && <SearchCard />} */}
         </YStack>
       </XStack>
     </SidebarProvider>
