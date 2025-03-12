@@ -128,7 +128,7 @@ function TechCard({
     >
       <XStack
         className='bg-white items-center gap-2 p-2 justify-center shadow-[3px_3px_0px_0px_rgba(0,0,0,1)] hover:shadow-[5px_5px_0px_0px_rgba(0,0,0,1)] hover:translate-y-[-4px] hover:translate-x-[-2px] transition-all duration-950 w-full'
-        style={{ width: '150px', borderRadius: '6px' }} // Set a fixed width for all cards
+        style={{ width: '150px', borderRadius: '6px' }}
       >
         <img width={30} src={imgSrc} alt={title} />
         <p className='text-center'>{title}</p>
@@ -138,13 +138,13 @@ function TechCard({
 }
 
 function TechStackCard() {
+  const { t } = useTranslation('', { keyPrefix: 'tech_stack_card' });
   const techCardConfig = useTechCardConfig();
 
   const defaultCard = {
     title: '',
     imgSrc: '',
-    description:
-      'Hover over a card, and let me explain more about the technologies I like to use',
+    description: t('description')
   };
 
   const [activeCard, setActiveCard] = useState(defaultCard);
@@ -181,8 +181,12 @@ function TechStackCard() {
         initial={{ opacity: 0, y: 100 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.5, ease: 'easeOut' }}
-        className='p-5 rounded-lg gap-2 w-full'
+        className='flex flex-col p-5 rounded-lg gap-2 w-full items-start'
       >
+        <XStack className='items-center justify-center gap-3'>
+        <h2 className='font-bold text-[var(--text)]'>{activeCard.title}</h2>
+        <img width={30} src={activeCard.imgSrc} alt={activeCard.title} />
+        </XStack>
         <Typewriter text={activeCard.description} delay={30} />
       </motion.div>
     </YStack>

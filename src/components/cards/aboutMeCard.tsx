@@ -1,10 +1,11 @@
+import Intro from '../intro';
+import { motion } from 'framer-motion';
 import Typewriter from '../typewriter';
 import { useTranslation } from 'react-i18next';
 import { XStack, YStack } from '../ui/stacks';
-import Intro from '../intro';
-import { motion } from 'framer-motion';
 
 function AboutMeCard() {
+
   const { t } = useTranslation();
 
   return (

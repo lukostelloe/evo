@@ -12,23 +12,24 @@
         "BANGK_desc":"With BANGK, I had the opportunity to create a variety of applications for a fintech platform, including a native application, a website and an internal dashboard"
     },
     "tech_stack_card":{
+        "description":"Hover over a card, and let me explain more about the technologies I like to use",
         "storybook":"I use Storybook to test and develop components independent to the application, this ensures components are well built, with zero bugs",
         "jest":"Jest is my preferred testing method, it is fast and simple to use, with plenty of functionality built in",
         "rtl":"Along with Jest, React Testing Library ensures high coverage of my projects, from the smallest components to full features",
         "figma":"Along with Jest, React Testing Library ensures high coverage of my projects, from the smallest components to full features",
         "github":"I use GitHub for collaboration with developers in personal and professional environments",
-        "tanstack":"tanstack",
-        "expo":"Expo is good for mobile development",
+        "tanstack":"TanStack provides powerful tools like React Query for data fetching, ensuring efficient and optimized state management in my applications.",
+        "expo":"Expo streamlines React Native development by providing a robust framework with built-in tools, making it easier to build, test, and deploy mobile apps across iOS and Android with minimal friction.",
         "zod":"Zod is my preferred type validation checker, ensuring secure type safety",
-        "javascript":"javscript",
-        "typescript":"typescript",
-        "html":"html",
-        "css":"css",
-        "react":"react",
-        "react_native":"react native",
-        "next":"next js",
-        "tailwind":"tailwind",
-        "panda_css":"panda css"
+        "javascript":"JavaScript is the foundation of my web development, enabling me to build interactive and dynamic applications.",
+        "typescript":"TypeScript enhances my JavaScript projects by adding static typing, improving maintainability and reducing runtime errors.",
+        "html":"HTML forms the backbone of my web applications, providing the structure and semantic foundation for my projects.",
+        "css":"CSS allows me to create visually appealing and responsive user interfaces, ensuring a polished user experience.",
+        "react":"React is my go-to library for building scalable, component-based user interfaces with ease and efficiency.",
+        "react_native":"React Native allows me to build cross-platform mobile applications with a single codebase while maintaining high performance.",
+        "next":"Next.js enhances my React applications with server-side rendering, static site generation, and optimized performance out of the box.",
+        "tailwind":"Tailwind CSS provides a utility-first approach to styling, making UI development fast, consistent, and maintainable.",
+        "panda_css":"Panda CSS combines the benefits of atomic styling with TypeScript integration, providing a flexible and strongly-typed styling solution for modern projects."
     }
 }
   

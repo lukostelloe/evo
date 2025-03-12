@@ -11,25 +11,26 @@
     "breachquest_desc": "Avec Breachquest, j'ai collaboré avec une équipe talentueuse de     développeurs sur Priori, un système de notification de cyberattaques de pointe.",
     "BANGK_desc": "Avec BANGK, j'ai eu l'opportunité de créer diverses applications pour une plateforme fintech, notamment une application native, un site web et un tableau de bord interne."
     },
-    "tech_stack_card": {
-        "storybook": "J'utilise Storybook pour tester et développer des composants indépendamment de l'application, ce qui garantit des composants bien construits, sans aucun bug.",
-        "jest": "Jest est ma méthode de test préférée, il est rapide et simple à utiliser, avec de nombreuses fonctionnalités intégrées.",
-        "rtl": "Avec Jest, React Testing Library assure une couverture élevée de mes projets, des plus petits composants aux fonctionnalités complètes.",
-        "figma": "J'utilise Figma pour collaborer sur des designs et créer des interfaces utilisateur précises et bien pensées.",
-        "github": "J'utilise GitHub pour collaborer avec d'autres développeurs dans des environnements personnels et professionnels.",
-        "tanstack":"tanstack",
-        "expo": "Expo est une excellente solution pour le développement mobile.",
-        "zod": "Zod est mon validateur de types préféré, garantissant une sécurité optimale des types.",
-        "javascript": "JavaScript",
-        "typescript": "TypeScript",
-        "html": "HTML",
-        "css": "CSS",
-        "react": "React",
-        "react_native": "React Native",
-        "next": "Next.js",
-        "tailwind": "Tailwind",
-        "panda_css": "Panda CSS"
-    }
+"tech_stack_card": {
+    "description":"Passez la souris sur une carte et laissez-moi vous expliquer plus en détail les technologies que j'aime utiliser.",
+    "storybook": "J'utilise Storybook pour tester et développer des composants indépendamment de l'application, garantissant ainsi des composants bien construits et sans bugs.",
+    "jest": "Jest est ma méthode de test préférée, rapide et simple à utiliser, avec de nombreuses fonctionnalités intégrées.",
+    "rtl": "Avec Jest, React Testing Library assure une couverture complète de mes projets, des plus petits composants aux fonctionnalités complètes.",
+    "figma": "J'utilise Figma pour concevoir et collaborer efficacement sur des interfaces utilisateur modernes et intuitives.",
+    "github": "J'utilise GitHub pour collaborer avec d'autres développeurs, aussi bien dans des environnements personnels que professionnels.",
+    "tanstack": "TanStack fournit des outils puissants comme React Query pour la récupération de données, garantissant une gestion d'état efficace et optimisée dans mes applications.",
+    "expo": "Expo simplifie le développement React Native en fournissant un cadre robuste avec des outils intégrés, facilitant ainsi la création, les tests et le déploiement d'applications mobiles sur iOS et Android.",
+    "zod": "Zod est mon outil préféré pour la validation des types, garantissant une sécurité et une fiabilité accrues.",
+    "javascript": "JavaScript est la base de mon développement web, me permettant de créer des applications interactives et dynamiques.",
+    "typescript": "TypeScript améliore mes projets JavaScript en ajoutant un typage statique, ce qui renforce la maintenabilité et réduit les erreurs d'exécution.",
+    "html": "HTML constitue l'ossature de mes applications web, en fournissant la structure et la sémantique de base de mes projets.",
+    "css": "CSS me permet de créer des interfaces utilisateur attrayantes et réactives, garantissant une expérience utilisateur soignée.",
+    "react": "React est ma bibliothèque de prédilection pour construire des interfaces utilisateur évolutives et basées sur des composants, avec efficacité et simplicité.",
+    "react_native": "React Native me permet de développer des applications mobiles multiplateformes avec une seule base de code, tout en assurant de bonnes performances.",
+    "next": "Next.js améliore mes applications React grâce au rendu côté serveur, à la génération statique et à une optimisation des performances prête à l'emploi.",
+    "tailwind": "Tailwind CSS offre une approche utilitaire du style, rendant le développement d'interfaces rapide, cohérent et facile à maintenir.",
+    "panda_css": "Panda CSS combine les avantages du style atomique avec une intégration TypeScript, offrant ainsi une solution de stylisation flexible et fortement typée pour les projets modernes."
+}
 }
 
   

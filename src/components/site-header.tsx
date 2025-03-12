@@ -4,6 +4,7 @@ import ThemeSelect from './theme-select';
 import { SidebarTrigger } from './ui/sidebar';
 import { XStack } from './ui/stacks';
 import ButtonTabs from './ui/buttonTabs';
+import StyleSelect from './style-select';
 
 function SiteHeader() {
   const isSmallScreen = useMediaQuery('max', 'md');
@@ -20,6 +21,7 @@ function SiteHeader() {
       <XStack className='gap-3 items-center'>
         <LanguageDropdown />
         <ThemeSelect />
+        <StyleSelect/>
       </XStack>
     </XStack>
   );
