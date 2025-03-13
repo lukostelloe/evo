@@ -4,7 +4,19 @@ import { motion } from 'framer-motion';
 // bg-[var(--background)]
 
 export default function Intro() {
-  const { t } = useTranslation();
+  const { t } = useTranslation('',{keyPrefix:'intro'});
+
+  const currentDate = new Date(Date.now()).toLocaleString();
+  console.log(currentDate);
+
+  
+  const currentHour = new Date().getHours();
+  
+  const greeting =
+    currentHour < 12 ? t('morning_intro') :
+    currentHour < 18 ? t('afternoon_intro') :
+    t('evening_intro');
+
 
   return (
     <motion.div
@@ -21,7 +33,7 @@ export default function Intro() {
     >
       <YStack className='gap-2 items-start w-full'>
         <h1 className='text-4xl sm:text-5xl font-bold text-[var(--text)]'>
-          Hey, I'm Luke
+          {greeting}
         </h1>
         <h1 className='text-3xl sm:text-5l font-bold text-[var(--text)]'>
           {t('software_developer')}

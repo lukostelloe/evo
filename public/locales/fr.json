@@ -1,8 +1,12 @@
 
 {
-    "hey_im":"Salut, moi c'est",
-    "software_developer": "Développeur logiciel",
-    "about_me_text": "Je suis un développeur basé à Nice, spécialisé dans le développement Front-End. J'adore créer des choses.",
+    "intro":{
+        "morning_intro":"Bonjour, moi c'est Luke",
+        "afternoon_intro":"Bonjour, moi c'est Luke",
+        "evening_intro":"Bonsoir, moi c'est Luke",
+        "software_developer": "Développeur logiciel",
+        "about_me_text": "Je suis un développeur basé à Nice, spécialisé dans le développement Front-End. J'adore créer des choses."
+    },
     "experience_card": {
         "monist_title": "Développeur Front-end",
         "breachquest_title": "Développeur Front-end",

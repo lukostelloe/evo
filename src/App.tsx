@@ -14,7 +14,6 @@ export default function App() {
   return (
     <SidebarProvider>
       <XStack className='w-screen h-screen bg-[var(--background)]'>
-        {/* Sidebar - Takes space instead of overlaying */}
         {isSmallScreen && <AppSidebar />}
 
         <SiteHeader />
@@ -22,7 +21,6 @@ export default function App() {
           {activeCard === 'aboutMe' && <AboutMeCard />}
           {activeCard === 'experience' && <ExperienceCard />}
           {activeCard === 'techstack' && <TechStackCard />}
-          {/* {activeCard === 'techstack' && <SearchCard />} */}
         </YStack>
       </XStack>
     </SidebarProvider>

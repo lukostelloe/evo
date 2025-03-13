@@ -33,7 +33,7 @@ export function StyleProvider({
   useEffect(() => {
     const root = window.document.documentElement;
 
-    root.classList.remove('light', 'dark');
+    root.classList.remove('retro', 'modern');
 
     root.classList.add(style);
   }, [style]);
