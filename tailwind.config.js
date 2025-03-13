@@ -29,6 +29,7 @@ export default {
 			text: 'var(--text)',
 			antiText: 'var(--anti-text)',
 			modeSwitcher: 'var(--mode-switcher)',
+			bigButton:'var(--button-bg)',
   			foreground: 'hsl(var(--foreground))',
   			card: {
   				DEFAULT: 'hsl(var(--card))',

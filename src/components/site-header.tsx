@@ -10,8 +10,8 @@ function SiteHeader() {
   const isSmallScreen = useMediaQuery('max', 'md');
 
   return (
-    <XStack className='fixed top-0 left-0 w-full items-center justify-between p-5 h-[60px]'>
-      <XStack className='items-center gap-6'>
+    <XStack className='fixed top-0 left-0 w-full items-center justify-between p-6 h-[60px]'>
+      <XStack className='items-center gap-6 '>
         {isSmallScreen ? (
           <SidebarTrigger className='hover:bg-[var(--background)]' />
         ) : null}

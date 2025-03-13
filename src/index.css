@@ -38,10 +38,12 @@
 
   .retro {
     --style-text: #c0392b;
+    --button-bg: #6B8E23
   }
 
   .modern {
     --style-text: #3498db;
+    --button-bg: #FCD34D
   }
 
   * {

@@ -14,7 +14,7 @@ export default function ButtonTabs() {
   };
 
   const activeStyles =
-    'bg-yellow-300 hover:bg-yellow-300 translate-y-[2px] shadow-[0px_0px_0px_0px_rgba(0,0,0,1)] border-2';
+    'bg-bigButton hover:bg-yellow-300 translate-y-[2px] shadow-[0px_0px_0px_0px_rgba(0,0,0,1)] border-2';
 
   function handleExplode() {
     setIsExploding(true);
