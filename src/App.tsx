@@ -17,7 +17,7 @@ export default function App() {
         {isSmallScreen && <AppSidebar />}
 
         <SiteHeader />
-        <YStack className='flex-1 h-full text-slate-800 font-sans gap-3 pt-[150px] px-10'>
+        <YStack className='flex-1 h-full text-[var(--text)] font-sans gap-3 pt-[150px] px-10'>
           {activeCard === 'aboutMe' && <AboutMeCard />}
           {activeCard === 'experience' && <ExperienceCard />}
           {activeCard === 'techstack' && <TechStackCard />}
