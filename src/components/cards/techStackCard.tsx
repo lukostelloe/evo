@@ -184,7 +184,7 @@ function TechStackCard() {
         className='flex flex-col p-5 rounded-lg gap-2 w-full items-start'
       >
         <XStack className='items-center justify-center gap-3'>
-        <h2 className='font-bold text-[var(--text)]'>{activeCard.title}</h2>
+        <h2 className='font-bold text-[var(--largetext)]'>{activeCard.title}</h2>
         <img width={30} src={activeCard.imgSrc} alt={activeCard.title} />
         </XStack>
         <Typewriter text={activeCard.description} delay={30} />

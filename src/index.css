@@ -25,6 +25,7 @@
     --background: #FDF6E8;
     --mode-switcher: #2a6d84;
     --text: #000000;
+    --largetext: #000000;
     --anti-text: #fff;
     --style-text:#c0392b
   }
@@ -32,7 +33,8 @@
   .dark {
     --background: #2a6d84;
     --mode-switcher: #FDF6E8;
-    --text: #fff;
+    --text: #000000;
+    --largetext: #ffffff;
     --anti-text: #000000;
   }
 

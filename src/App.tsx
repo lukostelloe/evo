@@ -7,6 +7,7 @@ import { AppSidebar } from './components/ui/app-sidebar';
 import SiteHeader from './components/site-header';
 import { useMediaQuery } from './hooks/useMediaQuery';
 import TechStackCard from './components/cards/techStackCard';
+import Banner from './components/ui/marquee';
 
 export default function App() {
   const { activeCard } = useButtonTabState();
@@ -14,8 +15,8 @@ export default function App() {
   return (
     <SidebarProvider>
       <XStack className='w-screen h-screen bg-[var(--background)]'>
+        <Banner/>
         {isSmallScreen && <AppSidebar />}
-
         <SiteHeader />
         <YStack className='flex-1 h-full text-[var(--text)] font-sans gap-3 pt-[150px] px-10'>
           {activeCard === 'aboutMe' && <AboutMeCard />}

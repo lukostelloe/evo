@@ -10,12 +10,12 @@ function SiteHeader() {
   const isSmallScreen = useMediaQuery('max', 'md');
 
   return (
-    <XStack className='fixed top-0 left-0 w-full items-center justify-between p-6 h-[60px]'>
+    <XStack className='fixed top-8 left-0 w-full items-center justify-between p-6 h-[60px]'>
       <XStack className='items-center gap-6 '>
         {isSmallScreen ? (
           <SidebarTrigger className='hover:bg-[var(--background)]' />
         ) : null}
-        <h3 className='font-bold text-[var(--text)]'>Luke Costelloe</h3>
+        <h3 className='font-bold text-[var(--largetext)]'>Luke Costelloe</h3>
       </XStack>
       {!isSmallScreen && <ButtonTabs />}
       <XStack className='gap-3 items-center'>
