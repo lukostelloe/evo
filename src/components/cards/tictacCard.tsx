@@ -1,6 +1,7 @@
+import { useState } from 'react';
 import { Stack } from '../ui/stacks';
 import { Button } from '../ui/button';
-import { useState } from 'react';
+
 
 function Square({
   value,
@@ -12,6 +13,7 @@ function Square({
   return <Button onClick={onSquareClick}>{value}</Button>;
 }
 function TicTacCard() {
+  
   const [xIsNext, setXIsNext] = useState(true);
   const [squares, setSquares] = useState(Array(9).fill(null));
 

@@ -1,10 +1,12 @@
-import { XStack, YStack } from '../ui/stacks';
-import { motion } from 'framer-motion';
 import { useState } from 'react';
-import { useTranslation } from 'react-i18next';
+import { motion } from 'framer-motion';
 import Typewriter from '../typewriter';
+import { XStack, YStack } from '../ui/stacks';
+import { useTranslation } from 'react-i18next';
+
 
 const useTechCardConfig = () => {
+  
   const { t } = useTranslation('', { keyPrefix: 'tech_stack_card' });
 
   return [
@@ -127,7 +129,10 @@ function TechCard({
       onMouseLeave={onMouseLeave}
     >
       <XStack
-        className='bg-white items-center gap-2 p-2 justify-center shadow-[3px_3px_0px_0px_rgba(0,0,0,1)] hover:shadow-[5px_5px_0px_0px_rgba(0,0,0,1)] hover:translate-y-[-4px] hover:translate-x-[-2px] transition-all duration-950 w-full'
+        className='bg-white items-center gap-2 p-2 justify-center shadow-[3px_3px_0px_0px_rgba(0,0,0,1)] transition-all duration-950 w-full 
+        hover:shadow-[5px_5px_0px_0px_rgba(0,0,0,1)] 
+        hover:translate-y-[-4px] 
+        hover:translate-x-[-2px] '
         style={{ width: '150px', borderRadius: '6px' }}
       >
         <img width={30} src={imgSrc} alt={title} />

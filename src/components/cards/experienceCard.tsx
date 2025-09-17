@@ -3,7 +3,6 @@ import { useTranslation } from 'react-i18next';
 import { Stack, XStack, YStack } from '../ui/stacks';
 
 
-
 const useExperienceConfig = () => {
 
   const { t } = useTranslation('', { keyPrefix: 'experience_card' });
