@@ -1,9 +1,9 @@
 import Intro from '../intro';
-import UserList from './userList';
 import { motion } from 'framer-motion';
 import Typewriter from '../typewriter';
 import { XStack, YStack } from '../ui/stacks';
 import { useTranslation } from 'react-i18next';
+import OpenAiCard from './OpenAiCard';
 
 
 function AboutMeCard() {
@@ -39,7 +39,8 @@ function AboutMeCard() {
         />
         <Typewriter text={t('about_me_text')} delay={30} />
       </XStack>
-      <UserList/>
+      {/* <UserList/> */}
+      <OpenAiCard/>
     </YStack>
   );
 }
