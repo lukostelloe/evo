@@ -4,7 +4,7 @@ import {
   SidebarFooter,
   SidebarGroup,
 } from '@/components/ui/sidebar';
-import ContactButtons from '../contactButtons';
+import ContactButtons from './contactButtons';
 import ButtonTabs from './buttonTabs';
 
 export function AppSidebar() {

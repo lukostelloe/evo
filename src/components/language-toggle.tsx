@@ -3,7 +3,7 @@ import { useState, useEffect } from 'react';
 import { Button } from './ui/button';
 import { Stack } from './ui/stacks';
 
-function LanguageDropdown() {
+function LanguageToggle() {
   const { i18n } = useTranslation();
   const [language, setLanguage] = useState(i18n.language);
 
@@ -31,4 +31,4 @@ function LanguageDropdown() {
   );
 }
 
-export default LanguageDropdown;
+export default LanguageToggle;

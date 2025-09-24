@@ -1,4 +1,4 @@
-import { XStack, YStack } from './ui/stacks';
+import { XStack, YStack } from './stacks';
 
 const useContactConfig = () => {
   return [

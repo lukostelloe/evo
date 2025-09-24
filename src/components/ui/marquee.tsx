@@ -2,6 +2,7 @@ import Marquee from 'react-fast-marquee';
 import { useTranslation } from 'react-i18next';
 
 const useTechCardConfig = () => {
+
   const { t } = useTranslation('', { keyPrefix: 'tech_stack_card' });
 
   return [
@@ -107,22 +108,24 @@ const useTechCardConfig = () => {
 
 function Banner() {
 
-    const techStack = useTechCardConfig()
+  const techStack = useTechCardConfig()
 
   return (
-    <div style={{top:'0',position:'fixed', marginBottom:'5px', width: '100%', height: '30px', overflow: 'hidden', paddingTop:'5px' }}>
+    <div style={{top:'0',position:'fixed', marginBottom:'5px', width: '100%', height: '40px', overflow: 'hidden'}}>
       <Marquee
-      className='bg-white'
-        autoFill
+      pauseOnHover={true}
+      className='bg-white h-8'
+      autoFill
+      speed={25}
       >
-  <div className="flex gap-5">
-  {techStack.map((tech) => (
-    <div className='flex gap-2'>
-    <p key={tech.title}>{tech.title}</p>
-    <img width={20} src={tech.imgSrc} alt={tech.title} />
-    </div>
-  ))}
-    </div>
+        <div className="flex gap-5">
+        {techStack.map((tech) => (
+          <div className='flex gap-2 mx-3'>
+            <p key={tech.title}>{tech.title}</p>
+            <img width={20} src={tech.imgSrc} alt={tech.title} />
+          </div>
+        ))}
+        </div>
       </Marquee>
     </div>
   );

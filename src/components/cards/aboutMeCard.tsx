@@ -26,7 +26,7 @@ function AboutMeCard() {
             stiffness: 100,
           }}
         >
-          <h1 className='text-5xl font-bold text-[var(--text)]'>👋</h1>
+          <h1 className='text-5xl font-bold text-[var(--anti-text)]'>👋</h1>
         </motion.div>
       </XStack>
       <XStack className='sm:w-3/4 md:w-1/2 lg:w-[900px] xl:w-[1000px] gap-5 items-center'>
