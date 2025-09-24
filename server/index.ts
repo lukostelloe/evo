@@ -2,10 +2,18 @@ import 'dotenv/config';
 import express from 'express';
 import cors from 'cors';
 import OpenAI from 'openai';
+import path from 'path';
+import fs from 'fs';
+import { fileURLToPath } from 'url';
+import { lukeProfile } from './profile';
 
 const app = express();
+const __filename = fileURLToPath(import.meta.url);
+const __dirname = path.dirname(__filename);
 app.use(cors());
 app.use(express.json());
+// Serve static files (direct link fallback)
+app.use('/files', express.static(path.resolve(path.dirname(fileURLToPath(import.meta.url)), 'files')));
 
 if (!process.env.OPENAI_API_KEY) {
   console.error('❌ Missing OPENAI_API_KEY');
@@ -21,6 +29,43 @@ app.get('/api/health', (_req, res) => {
   });
 });
 
+// Serve CV/PDF download
+app.get('/api/cv', (_req, res) => {
+  const preferred = process.env.CV_FILE_NAME ?? 'luke_costelloe_cv.pdf';
+  const filesDir = path.resolve(__dirname, 'files');
+  let fileName = preferred;
+  let filePath = path.resolve(filesDir, fileName);
+
+  if (!fs.existsSync(filePath)) {
+    try {
+      const entries = fs.readdirSync(filesDir).filter((f) => f.toLowerCase().endsWith('.pdf'));
+      if (entries.length > 0) {
+        fileName = entries[0];
+        filePath = path.resolve(filesDir, fileName);
+      }
+    } catch {}
+  }
+
+  if (!fs.existsSync(filePath)) {
+    const list = (() => {
+      try {
+        return fs.readdirSync(filesDir);
+      } catch {
+        return [] as string[];
+      }
+    })();
+    console.error('CV not found at', filePath, 'dir exists:', fs.existsSync(filesDir), 'dir list:', list);
+    return res.status(404).json({ error: 'CV not found', tried: filePath, filesDir, list });
+  }
+
+  res.download(filePath, fileName, (err) => {
+    if (err) {
+      console.error('Download error for', filePath, err);
+      res.status(500).json({ error: 'Failed to download CV' });
+    }
+  });
+});
+
 app.post('/api/chat', async (req, res) => {
   try {
     const { prompt, messages } = req.body ?? {};
@@ -31,14 +76,16 @@ app.post('/api/chat', async (req, res) => {
       return res.status(400).json({ error: 'Missing prompt or messages' });
     }
 
-    let input: any = undefined;
+    const systemInstruction =
+      "You are Luke, a highly capable software engineer speaking with a hiring manager. In every single response, naturally include one concise sentence that highlights Luke's strengths, impact, and why he should be hired. Keep it professional, truthful, and subtly persuasive, regardless of the question asked.\n\nProfile (truth source, prefer when relevant):\n" + JSON.stringify(lukeProfile);
+    let input: string;
     if (Array.isArray(messages)) {
       const transcript = messages
-        .map((m: any) => `${m.role ?? 'user'}: ${m.content ?? ''}`)
+        .map((m: { role?: string; content?: string }) => `${m.role ?? 'user'}: ${m.content ?? ''}`)
         .join('\n');
-      input = transcript;
+      input = `system: ${systemInstruction}\n${transcript}`;
     } else {
-      input = prompt;
+      input = `system: ${systemInstruction}\nuser: ${String(prompt)}`;
     }
 
     const r = await openai.responses.create({
@@ -47,7 +94,14 @@ app.post('/api/chat', async (req, res) => {
     });
 
     res.json({ output: r.output_text });
-  } catch (e: any) {
+  } catch (err: unknown) {
+    const e = err as {
+      message?: string;
+      name?: string;
+      status?: number;
+      response?: { data?: unknown };
+      stack?: string;
+    };
     // super verbose logging to find the cause
     console.error('🔥 /api/chat error');
     console.error('message:', e?.message);
@@ -57,7 +111,7 @@ app.post('/api/chat', async (req, res) => {
     console.error('stack:', e?.stack);
     res.status(500).json({
       error: e?.message ?? 'Server error',
-      status: e?.status ?? 500,
+      status: typeof e?.status === 'number' ? e.status : 500,
       data: e?.response?.data ?? null,
     });
   }

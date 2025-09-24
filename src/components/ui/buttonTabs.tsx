@@ -16,8 +16,34 @@ export default function ButtonTabs() {
   const activeStyles =
     'bg-bigButton hover:bg-yellow-300 translate-y-[2px] shadow-[0px_0px_0px_0px_rgba(0,0,0,1)] border-2';
 
-  function handleExplode() {
+
+  function handleDownloadCv() {
     setIsExploding(true);
+    // Fetch as blob to avoid navigation/opening the PDF tab
+    fetch('/luke_costelloe_cv.pdf')
+      .then(async (res) => {
+        if (!res.ok) throw new Error('Failed to fetch CV');
+        return await res.blob();
+      })
+      .then((blob) => {
+        const url = URL.createObjectURL(blob);
+        const a = document.createElement('a');
+        a.href = url;
+        a.download = 'Luke-Costelloe-CV.pdf';
+        document.body.appendChild(a);
+        a.click();
+        a.remove();
+        URL.revokeObjectURL(url);
+      })
+      .catch(() => {
+        // fallback to direct link if blob download fails
+        const a = document.createElement('a');
+        a.href = '/luke_costelloe_cv.pdf';
+        a.download = 'Luke-Costelloe-CV.pdf';
+        document.body.appendChild(a);
+        a.click();
+        a.remove();
+      });
   }
 
   return (
@@ -47,7 +73,7 @@ export default function ButtonTabs() {
         Tech Stack
       </Button>
       <YStack className='justify-center items-center'>
-        <Button variant='orangeround' onClick={handleExplode} className='z-10'>
+        <Button variant='orangeround' onClick={handleDownloadCv} className='z-10'>
           <Download />
           Download my CV
         </Button>

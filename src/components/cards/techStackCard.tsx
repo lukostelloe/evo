@@ -192,7 +192,7 @@ function TechStackCard() {
         <h2 className='font-bold text-[var(--largetext)]'>{activeCard.title}</h2>
         <img width={30} src={activeCard.imgSrc} alt={activeCard.title} />
         </XStack>
-        <Typewriter text={activeCard.description} delay={30} />
+        <Typewriter text={activeCard.description} delay={10} />
       </motion.div>
     </YStack>
   );

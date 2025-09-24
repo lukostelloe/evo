@@ -11,7 +11,7 @@ function AboutMeCard() {
   const { t } = useTranslation();
 
   return (
-    <YStack className='sm:items-center md:items-center gap-8'>
+    <YStack className='sm:items-center md:items-center gap-8 min-h-[60vh] flex justify-center'>
       <XStack className='gap-5'>
         <Intro />
         <motion.div
@@ -40,7 +40,27 @@ function AboutMeCard() {
         <Typewriter text={t('about_me_text')} delay={30} />
       </XStack>
       {/* <UserList/> */}
-      <OpenAiCard/>
+      <OpenAiCard
+        character="TypeScript developer who loves start ups and clean architecture"
+        greeting="Hey, I'm Luke, I can help you with anything TS or architecture."
+        assistantName="Luke"
+        profile={{
+          name: 'Luke Costelloe',
+          location: 'Nice, France',
+          nationality:'Irish',
+          family:'Beautiful fiancee called Sandra, and a cat called Cerise',
+          title: 'Full‑Stack Engineer',
+          stacks: ['React', 'Node.js', 'TypeScript', 'PostgreSQL', 'AWS'],
+          highlights: [
+            'Shipped complex apps end‑to‑end',
+            'Led teams and improved delivery velocity',
+            'Focus on developer experience and reliability',
+          ],
+          github: 'https://github.com/…',
+          website: 'https://…',
+          hobbies: 'Running, producing music, and playing video games',
+        }}
+        />
     </YStack>
   );
 }

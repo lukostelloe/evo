@@ -1,9 +1,24 @@
 import { useState } from 'react';
 import { Button } from '../ui/button';
 
-export default function OpenAiCard() {
-  const [messages, setMessages] = useState<Array<{ role: 'user' | 'assistant'; content: string }>>([
-    { role: 'assistant', content: 'Hi! Ask me anything.' },
+type ChatRole = 'user' | 'assistant';
+type ChatMessage = { role: ChatRole; content: string };
+
+type OpenAiCardProps = {
+  character?: string; // persona/system hint for the assistant
+  greeting?: string; // first assistant message shown in the chat
+  assistantName?: string; // label used for assistant bubbles
+  profile?: Record<string, unknown>; // structured facts about Luke to send with each request
+};
+
+export default function OpenAiCard({
+  character = 'friendly senior engineer mentor',
+  greeting = 'Hi! Ask me anything.',
+  assistantName = 'Luke',
+  profile,
+}: OpenAiCardProps) {
+  const [messages, setMessages] = useState<Array<ChatMessage>>([
+    { role: 'assistant', content: greeting },
   ]);
   const [input, setInput] = useState('');
   const [loading, setLoading] = useState(false);
@@ -14,14 +29,20 @@ export default function OpenAiCard() {
     if (!input.trim() || loading) return;
     setLoading(true);
     setErr(null);
-    const next = [...messages, { role: 'user' as const, content: input }];
+    const next: ChatMessage[] = [...messages, { role: 'user', content: input }];
     setMessages(next);
     setInput('');
     try {
+      // Prepend a non-visible persona hint only in the request payload
+      const profileHint = profile ? ` (Profile: ${JSON.stringify(profile)})` : '';
+      const payloadMessages: ChatMessage[] = [
+        { role: 'assistant', content: `(Persona: ${character})${profileHint}` },
+        ...next,
+      ];
       const res = await fetch('/api/chat', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ messages: next }),
+        body: JSON.stringify({ messages: payloadMessages }),
       });
 
       if (!res.ok) {
@@ -29,15 +50,22 @@ export default function OpenAiCard() {
         try {
           const text = await res.text();
           fallback = text || fallback;
-        } catch {}
+        } catch {
+          /* ignore body read errors */
+        }
         throw new Error(fallback);
       }
 
       const data = await res.json();
       const reply = String(data.output ?? '').trim() || '(no response)';
       setMessages((m) => [...m, { role: 'assistant', content: reply }]);
-    } catch (e: any) {
-      const msg = e?.message ?? 'Request failed';
+    } catch (err: unknown) {
+      let msg = 'Request failed';
+      if (err instanceof Error && err.message) {
+        msg = err.message;
+      } else if (typeof err === 'string') {
+        msg = err;
+      }
       if (msg.includes('429')) {
         setErr('Rate limit or quota exceeded. Please check billing or try later.');
       } else {
@@ -49,11 +77,25 @@ export default function OpenAiCard() {
   }
 
   return (
-    <div className="p-4 border rounded max-w-lg w-full">
+    <div className="p-4 rounded max-w-3xl w-full">
       <div className="mb-3 h-64 overflow-auto border rounded p-3 bg-white/50">
         {messages.map((m, i) => (
-          <div key={i} className="mb-2">
-            <strong>{m.role === 'user' ? 'You' : 'AI'}:</strong> <span>{m.content}</span>
+          <div
+            key={i}
+            className={`mb-2 flex ${m.role === 'user' ? 'justify-end' : 'justify-start'}`}
+          >
+            <div
+              className={`max-w-[85%] rounded px-3 py-2 shadow-sm ${
+                m.role === 'user'
+                  ? 'bg-blue-600 text-white'
+                  : 'bg-gray-100 text-gray-900'
+              }`}
+            >
+              <div className="text-xs opacity-70 mb-1">
+                {m.role === 'user' ? 'You' : assistantName}
+              </div>
+              <div>{m.content}</div>
+            </div>
           </div>
         ))}
       </div>
@@ -62,9 +104,9 @@ export default function OpenAiCard() {
           type="text"
           value={input}
           onChange={(e) => setInput(e.target.value)}
-          placeholder={loading ? 'Working…' : 'Type a message'}
+          placeholder={loading ? 'Working…' : 'Ask Luke a question'}
           disabled={loading}
-          className="flex-1 border px-3 py-2 rounded"
+          className="flex-1 px-3 py-2 rounded"
         />
         <Button type="submit" disabled={loading || !input.trim()} className="border px-3 py-2 rounded">
           {loading ? 'Sending…' : 'Send'}
