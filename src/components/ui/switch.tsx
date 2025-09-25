@@ -8,6 +8,7 @@ const Switch = React.forwardRef<
   React.ComponentPropsWithoutRef<typeof SwitchPrimitives.Root>
 >(({ className, ...props }, ref) => (
   <SwitchPrimitives.Root
+    role='switch'
     className={cn(
       // base size/layout
       'peer inline-flex h-10 w-14 shrink-0 cursor-pointer items-center rounded-full border-2 transition-all disabled:cursor-not-allowed disabled:opacity-50',
