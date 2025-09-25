@@ -160,13 +160,13 @@ function TechStackCard() {
         {techCardConfig.map((card, index) => (
           <motion.div
             key={index}
-            initial={{ y: -500 }} // Start slightly above the screen
-            animate={{ y: 0 }} // Animate to the grid position
+            initial={{ opacity: 0, y: 500 }}   // start invisible & lower down
+            animate={{ opacity: 1, y: 0 }} 
             transition={{
               type: 'spring', // Using spring animation for bounce
-              stiffness: 100, // Control how tight the bounce is
+              stiffness: 50, // Control how tight the bounce is
               damping: 10, // Control how quickly the bounce settles
-              duration: 0.4, // Total animation duration
+              duration: 0.2, // Total animation duration
               delay: index * 0.05, // Small delay based on index for staggered effect
             }}
             className='flex justify-center'

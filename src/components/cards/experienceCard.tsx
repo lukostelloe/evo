@@ -1,6 +1,7 @@
 
 import { useTranslation } from 'react-i18next';
 import { Stack, XStack, YStack } from '../ui/stacks';
+import { motion } from 'framer-motion';
 
 
 const useExperienceConfig = () => {
@@ -75,7 +76,21 @@ function Experience({
 function ExperienceCard() {
   const experienceConfig = useExperienceConfig();
 
+
   return (
+    <>
+                 <motion.div
+  initial={{ opacity: 0, y: 100 }} // start lower & invisible
+  animate={{ opacity: 1, y: 0 }}  // fade in & move up to place
+  transition={{
+    type: 'spring',
+    stiffness: 100,
+    damping: 12,
+    duration: 0.6,
+    delay: 0.05,
+  }}
+  className="flex justify-center"
+>
     <Stack className='gap-6 rounded-md sm:flex-row flex-col'>
       {experienceConfig.map((exp) => (
         <Experience
@@ -88,6 +103,8 @@ function ExperienceCard() {
         />
       ))}
     </Stack>
+        </motion.div>
+    </>
   );
 }
 
