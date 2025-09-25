@@ -21,6 +21,7 @@ const buttonVariants = cva(
         link: 'text-primary underline-offset-4 hover:underline focus:outline-none',
         orangeround:
           'text-black bg-orange-400 rounded-full border-2 border-black hover:bg-orange-400 focus:outline-none border-b-4 shadow-[1px_2px_0px_0px_rgba(0,0,0,1)] active:border-b-2 active:shadow-[0px_0px_0px_0px_rgba(0,0,0,1)] active:translate-y-[2px] transition-all duration-100',
+        withbg:'shadow-[2px_3px_0px_0px_rgba(0,0,0,1)] active:border-b-2 active:shadow-[1px_1px_0px_0px_rgba(0,0,0,1)] active:translate-y-[2px] transition-all duration-100 text-black rounded-full border-2 bg-[var(--mode-switcher)] border-black',
       },
       size: {
         default: 'h-10 px-4 py-2',

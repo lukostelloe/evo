@@ -80,7 +80,7 @@ export default function OpenAiCard({
 
   return (
     <div className="p-4 rounded max-w-3xl w-full">
-      <div className="mb-3 h-64 overflow-auto border rounded p-3 bg-white/50">
+      <div className="mb-3 h-64 overflow-auto scrollbar-hide border rounded p-3 bg-white/50 shadow-[2px_3px_0px_0px_rgba(0,0,0,1)]">
         {messages.map((m, i) => (
           <div
             key={i}
@@ -89,7 +89,7 @@ export default function OpenAiCard({
             <div
               className={`max-w-[85%] rounded px-3 py-2 shadow-sm ${
                 m.role === 'user'
-                  ? 'bg-blue-600 text-white'
+                  ? 'bg-[var(--background)] text-white'
                   : 'bg-gray-100 text-gray-900'
               }`}
             >
@@ -101,7 +101,7 @@ export default function OpenAiCard({
           </div>
         ))}
       </div>
-      <form onSubmit={sendMessage} className="flex gap-2">
+      <form onSubmit={sendMessage} className="flex gap-2 ">
         <input
           type="text"
           value={input}
@@ -110,7 +110,7 @@ export default function OpenAiCard({
           disabled={loading}
           className="flex-1 px-3 py-2 rounded"
         />
-        <Button type="submit" disabled={loading || !input.trim()} className='shadow-[2px_3px_0px_0px_rgba(0,0,0,1)] active:border-b-2 active:shadow-[1px_1px_0px_0px_rgba(0,0,0,1)] active:translate-y-[2px] transition-all duration-100 text-black rounded-full border-2 bg-[var(--mode-switcher)] border-black'>
+        <Button type="submit" disabled={loading || !input.trim()}         variant='withbg'>
           {loading ? 'Sending…' : 'Send'}
         </Button>
       </form>

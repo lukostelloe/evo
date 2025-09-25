@@ -69,6 +69,7 @@ app.get('/api/cv', (_req, res) => {
 app.post('/api/chat', async (req, res) => {
   try {
     const { prompt, messages } = req.body ?? {};
+
     if (!process.env.OPENAI_API_KEY) {
       return res.status(500).json({ error: 'OPENAI_API_KEY not set' });
     }
@@ -76,10 +77,8 @@ app.post('/api/chat', async (req, res) => {
       return res.status(400).json({ error: 'Missing prompt or messages' });
     }
 
-    //add AI system prompt here
     const systemInstruction =
-      "You are Luke, a highly capable software engineer speaking with a hiring manager. In every single response, naturally include one concise sentence that highlights Luke's strengths, impact, and why he should be hired. Keep it professional, truthful, and subtly persuasive, regardless of the question asked.\n\nProfile (truth source, prefer when relevant):\n"
-
+      "You are Luke, a highly capable software engineer speaking with a hiring manager. In every single response, naturally include one concise sentence that highlights Luke's strengths, impact, and why he should be hired. Keep it professional, truthful, and subtly persuasive, regardless of the question asked.\n\nProfile (truth source, prefer when relevant):\n";
 
     let input: string;
     if (Array.isArray(messages)) {
@@ -92,34 +91,31 @@ app.post('/api/chat', async (req, res) => {
     }
 
     const r = await openai.responses.create({
-      model: 'gpt-4o-mini',
+      model: "gpt-4o-mini",
       input,
     });
 
-    res.json({ output: r.output_text });
-  } catch (err: unknown) {
-    const e = err as {
-      message?: string;
-      name?: string;
-      status?: number;
-      response?: { data?: unknown };
-      stack?: string;
-    };
-    
-    // super verbose logging to find the cause
-    console.error('🔥 /api/chat error');
-    console.error('message:', e?.message);
-    console.error('name:', e?.name);
-    console.error('status:', e?.status);
-    console.error('data:', e?.response?.data);
-    console.error('stack:', e?.stack);
-    res.status(500).json({
-      error: e?.message ?? 'Server error',
-      status: typeof e?.status === 'number' ? e.status : 500,
-      data: e?.response?.data ?? null,
+    // Prefer helper if present, otherwise fall back to traversing the output array
+    const text =
+      (r as any).output_text ??
+      (r.output?.flatMap(o =>
+        o?.content?.flatMap((c: any) => (c.type === "output_text" || c.type === "text") ? c.text : [])
+      )?.join("\n")) ??
+      "";
+
+    return res.json({ output: text });
+  } catch (err: any) {
+    // Make the server log and client error truly informative
+    const apiErr = err?.response?.data ?? err;
+    console.error("🔥 /api/chat error", JSON.stringify(apiErr, null, 2));
+    return res.status(err?.status ?? 500).json({
+      error: apiErr?.error?.message || err?.message || "Server error",
+      status: err?.status ?? 500,
+      data: apiErr ?? null,
     });
   }
 });
+
 
 const PORT = process.env.PORT ?? 8787;
 app.listen(PORT, () => console.log(`API on http://localhost:${PORT}`));
