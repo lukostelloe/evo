@@ -14,17 +14,22 @@ type OpenAiCardProps = {
 };
 
 export default function OpenAiCard({
-  character = 'friendly senior engineer mentor',
-  greeting = 'Hi! Ask me anything.',
-  assistantName = 'Luke',
+  character,
+  greeting,
+  assistantName,
   profile,
 }: OpenAiCardProps) {
+
   const [messages, setMessages] = useState<Array<ChatMessage>>([
+    // eslint-disable-next-line @typescript-eslint/ban-ts-comment
+    // @ts-expect-error
     { role: 'assistant', content: greeting },
   ]);
+
   const [input, setInput] = useState('');
   const [loading, setLoading] = useState(false);
   const [err, setErr] = useState<string | null>(null);
+
 
   async function sendMessage(e?: React.FormEvent) {
     e?.preventDefault?.();

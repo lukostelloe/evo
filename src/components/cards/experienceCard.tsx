@@ -63,7 +63,7 @@ function Experience({
             <p>{description}</p>
           </YStack>
         </XStack>
-        <YStack>
+        <YStack className='gap-2'>
           <p className='font-bold'>{title}</p>
           <p>{info}</p>
         </YStack>
