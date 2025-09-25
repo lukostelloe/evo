@@ -1,9 +1,12 @@
+
+
 import Intro from '../intro';
+import OpenAiCard from './OpenAiCard';
 import { motion } from 'framer-motion';
 import Typewriter from '../typewriter';
 import { XStack, YStack } from '../ui/stacks';
 import { useTranslation } from 'react-i18next';
-import OpenAiCard from './OpenAiCard';
+// import UserList from './userList';
 
 
 function AboutMeCard() {
@@ -29,7 +32,10 @@ function AboutMeCard() {
           <h1 className='text-5xl font-bold text-[var(--anti-text)]'>👋</h1>
         </motion.div>
       </XStack>
-      <XStack className='sm:w-3/4 md:w-1/2 lg:w-[900px] xl:w-[1000px] gap-5 items-center'>
+
+      {/* this is annoying me, padding will center, but not responsive
+      justify center moves the image while it types */}
+      <XStack className='sm:w-3/4 md:w-1/2 lg:w-[900px] xl:w-[1000px] gap-5 items-center pl-20'>
         <img
           alt='luke'
           width={60}
@@ -39,7 +45,7 @@ function AboutMeCard() {
         />
         <Typewriter text={t('about_me_text')} delay={30} />
       </XStack>
-      {/* <UserList/> */}
+
       <OpenAiCard
         character="TypeScript developer who loves start ups and clean architecture"
         greeting="Hey, I'm Luke, I can help you with anything TS or architecture."
@@ -61,6 +67,9 @@ function AboutMeCard() {
           hobbies: 'Running, producing music, and playing video games',
         }}
         />
+
+      {/* dont need this atm, python full stack demo */}
+      {/* <UserList/> */}
     </YStack>
   );
 }

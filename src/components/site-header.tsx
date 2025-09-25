@@ -5,9 +5,12 @@ import { SidebarTrigger } from './ui/sidebar';
 import { XStack } from './ui/stacks';
 import ButtonTabs from './ui/buttonTabs';
 import StyleSelect from './style-select';
+import { Switch } from './ui/switch';
+import { useMarqueeStore } from '@/store/marqueeStore';
 
 function SiteHeader() {
   const isSmallScreen = useMediaQuery('max', 'md');
+  const { marqueeOn, setMarqueeOn } = useMarqueeStore()
 
   return (
     <XStack className='fixed top-8 left-0 w-full items-center justify-between p-6 h-[60px]'>
@@ -22,6 +25,11 @@ function SiteHeader() {
         <LanguageToggle />
         <ThemeSelect />
         <StyleSelect/>
+      <Switch
+        id="notif"
+        checked={marqueeOn}
+        onCheckedChange={setMarqueeOn}
+      />
       </XStack>
     </XStack>
   );

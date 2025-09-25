@@ -189,10 +189,19 @@ function TechStackCard() {
         className='flex flex-col p-5 rounded-lg gap-2 w-full items-start'
       >
         <XStack className='items-center justify-center gap-3'>
-        <h2 className='font-bold text-[var(--largetext)]'>{activeCard.title}</h2>
-        <img width={30} src={activeCard.imgSrc} alt={activeCard.title} />
-        </XStack>
+          {activeCard.title ? (
+            <img width={30} src={activeCard.imgSrc} alt={activeCard.title} />
+          ) : (
+            <img
+              alt='luke'
+              width={30}
+              height={30}
+              src='/luke-id.jpeg'
+              className='rounded-full'
+            />
+          )}
         <Typewriter text={activeCard.description} delay={10} />
+        </XStack>
       </motion.div>
     </YStack>
   );

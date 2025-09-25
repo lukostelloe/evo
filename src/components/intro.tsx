@@ -1,15 +1,13 @@
+
+
 import { YStack } from './ui/stacks';
-import { useTranslation } from 'react-i18next';
 import { motion } from 'framer-motion';
-// bg-[var(--background)]
+import { useTranslation } from 'react-i18next';
 
 export default function Intro() {
+
   const { t } = useTranslation('',{keyPrefix:'intro'});
-
-  const currentDate = new Date(Date.now()).toLocaleString();
-  console.log(currentDate);
-
-  
+ 
   const currentHour = new Date().getHours();
   
   const greeting =

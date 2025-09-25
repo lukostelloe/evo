@@ -31,10 +31,14 @@ export default function ContactButtons() {
   const contactConfig = useContactConfig();
 
   return (
-    <XStack className='p-2 rounded-full items-center gap-3 '>
-      {contactConfig.map((contact) => (
-        <Contact img={contact.img} link={contact.link} />
-      ))}
-    </XStack>
+    <XStack className="p-2 rounded-full items-center gap-3">
+  {contactConfig.map((contact, i) => (
+    <Contact
+      key={contact.link ?? i}
+      img={contact.img}
+      link={contact.link}
+    />
+  ))}
+</XStack>
   );
 }

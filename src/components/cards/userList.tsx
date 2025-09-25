@@ -1,3 +1,7 @@
+//  ══╦══ ╔══╗ ╔═╗  ╔══╗
+//    ║   ║  ║ ║  ║ ║  ║
+//    ╩   ╚══╝ ╚══╝ ╚══╝
+
 import { useEffect, useState } from "react";
 
 
@@ -12,7 +16,6 @@ function UserList() {
   const [users, setUsers] = useState<User[]>([]);
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
-
 
 
   useEffect(() => {

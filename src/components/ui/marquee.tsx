@@ -1,4 +1,5 @@
 import Marquee from 'react-fast-marquee';
+import { useMarqueeStore } from '@/store/marqueeStore';
 import { useTranslation } from 'react-i18next';
 
 const useTechCardConfig = () => {
@@ -109,6 +110,7 @@ const useTechCardConfig = () => {
 function Banner() {
 
   const techStack = useTechCardConfig()
+  const { marqueeOn } = useMarqueeStore();
 
   return (
     <div style={{top:'0',position:'fixed', marginBottom:'5px', width: '100%', height: '40px', overflow: 'hidden'}}>
@@ -116,7 +118,8 @@ function Banner() {
       pauseOnHover={true}
       className='bg-white h-8'
       autoFill
-      speed={25}
+      speed={marqueeOn ? 30 : 0}
+      play={marqueeOn}
       >
         <div className="flex gap-5">
         {techStack.map((tech) => (

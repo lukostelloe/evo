@@ -1,3 +1,5 @@
+
+
 import Banner from './components/ui/marquee';
 import SiteHeader from './components/site-header';
 import { useMediaQuery } from './hooks/useMediaQuery';
