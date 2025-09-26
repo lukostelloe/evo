@@ -160,13 +160,13 @@ function TechStackCard() {
         {techCardConfig.map((card, index) => (
           <motion.div
             key={index}
-            initial={{ opacity: 0, y: 500 }}   // start invisible & lower down
+            initial={{ opacity: 0, y: 100 }}   // start invisible & lower down
             animate={{ opacity: 1, y: 0 }} 
             transition={{
               type: 'spring', // Using spring animation for bounce
               stiffness: 50, // Control how tight the bounce is
               damping: 10, // Control how quickly the bounce settles
-              duration: 0.2, // Total animation duration
+              duration: 1, // Total animation duration
               delay: index * 0.05, // Small delay based on index for staggered effect
             }}
             className='flex justify-center'
@@ -183,9 +183,9 @@ function TechStackCard() {
 
       <motion.div
         key={activeCard.title}
-        initial={{ opacity: 0, y: 100 }}
+        initial={{ opacity: 0, y: 50 }}
         animate={{ opacity: 1, y: 0 }}
-        transition={{ duration: 0.5, ease: 'easeOut' }}
+        transition={{ duration: 0.5, ease: 'easeOut', delay:0.2 }}
         className='flex flex-col p-5 rounded-lg gap-2 w-full items-start'
       >
         <XStack className='items-center justify-center gap-3'>
