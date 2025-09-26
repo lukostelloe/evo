@@ -7,6 +7,12 @@
         "software_developer": "Développeur logiciel"
     },
     "about_me_text": "Je suis un développeur basé à Nice, spécialisé dans le développement Front-End. J'adore créer des choses.",
+    "buttonTabs":{
+        "about_me":"Qui Je Suis",
+        "experience":"Parcours",
+        "tech_stack":"Mes technos",
+        "get_my_cv":"Mon CV"
+    },
     "experience_card": {
         "monist_title": "Développeur Front-end",
         "breachquest_title": "Développeur Front-end",

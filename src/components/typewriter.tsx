@@ -1,3 +1,4 @@
+
 import { useState, useEffect } from 'react';
 
 const Typewriter = ({ text, delay }: { text: string; delay: number }) => {

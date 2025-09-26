@@ -7,6 +7,12 @@
         "software_developer":"Software Developer"
     },
     "about_me_text":"Hey, I'm Luke, a developer based in Nice, specialising in Front-End development. I love making things.",
+    "buttonTabs":{
+        "about_me":"About Me",
+        "experience":"Experience",
+        "tech_stack":"Tech Stack",
+        "get_my_cv":"Get my Cv"
+    },
     "experience_card":{
         "monist_title":"Front-end Developer",
         "breachquest_title":"Front-end Developer",

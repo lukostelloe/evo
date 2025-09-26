@@ -1,5 +1,5 @@
 import { useMediaQuery } from '@/hooks/useMediaQuery';
-import LanguageToggle from './language-toggle'
+import LanguageSelect from './language-select'
 import ThemeSelect from './theme-select';
 import { SidebarTrigger } from './ui/sidebar';
 import { XStack } from './ui/stacks';
@@ -22,7 +22,7 @@ function SiteHeader() {
       </XStack>
       {!isSmallScreen && <ButtonTabs />}
       <XStack className='gap-3 items-center'>
-        <LanguageToggle />
+        <LanguageSelect />
         <ThemeSelect />
         <StyleSelect/>
       <Switch

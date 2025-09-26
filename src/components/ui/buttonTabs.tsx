@@ -1,19 +1,24 @@
+
+
 import { useState } from 'react';
 import { Button } from './button';
 import { Stack, YStack } from './stacks';
+import { useTranslation } from 'react-i18next';
 import ConfettiExplosion from 'react-confetti-explosion';
-import { CircleCheck, Code, Download, Smile } from 'lucide-react';
 import { useButtonTabState } from '../../store/activeTabStore';
+import { CircleCheck, Code, Download, Smile } from 'lucide-react';
 
 export default function ButtonTabs() {
+  
   const [isExploding, setIsExploding] = useState(false);
   const { activeCard, changeButtonTab } = useButtonTabState();
+  const { t } = useTranslation('',{keyPrefix:'buttonTabs'});
 
   const handleButtonClick = (card: string) => {
     changeButtonTab(card);
   };
 
-  const activeStyles =
+  const pressedStyle =
     'bg-bigButton hover:bg-yellow-300 translate-y-[2px] shadow-[0px_0px_0px_0px_rgba(0,0,0,1)] border-2';
 
 
@@ -49,33 +54,33 @@ export default function ButtonTabs() {
   return (
     <Stack className='p-3 gap-2 rounded-full flex sm:flex-row flex-col items-center justify-center'>
       <Button
-        className={`${activeCard === 'aboutMe' ? activeStyles : ''}`}
+        className={`${activeCard === 'aboutMe' ? pressedStyle : ''}`}
         variant='orangeround'
         onClick={() => handleButtonClick('aboutMe')}
       >
         <Smile />
-        About me
+        {t('about_me')}
       </Button>
       <Button
-        className={`${activeCard === 'experience' ? activeStyles : ''}`}
+        className={`${activeCard === 'experience' ? pressedStyle : ''}`}
         variant='orangeround'
         onClick={() => handleButtonClick('experience')}
       >
         <CircleCheck />
-        Experience
+        {t('experience')}
       </Button>
       <Button
-        className={`${activeCard === 'techstack' ? activeStyles : ''}`}
+        className={`${activeCard === 'techstack' ? pressedStyle : ''}`}
         variant='orangeround'
         onClick={() => handleButtonClick('techstack')}
       >
         <Code />
-        Tech Stack
+        {t('tech_stack')}
       </Button>
       <YStack className='justify-center items-center'>
         <Button variant='orangeround' onClick={handleDownloadCv} className='z-10'>
           <Download />
-          Download my CV
+          {t('get_my_cv')}
         </Button>
         {isExploding && (
           <ConfettiExplosion
